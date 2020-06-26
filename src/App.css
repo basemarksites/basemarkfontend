@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Sign in form*/
+.signinform {
+  width: 500px;
+  margin: 20px auto;
+  padding: 30px;
+  box-shadow: 2px 0px 31px #efefef;
+}
+/* Sign up form*/
+.signupform {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 2px 0px 31px #efefef;
+}

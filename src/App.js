@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import NoMatch from './components/NoMatch';
+import PrivateRoute from './components/PrivateRoute';
+
+import Welcome from './components/Welcome';
+import Login from './components/Login';
+import RecoverPassword from './components/RecoverPassword';
+import Registration from './components/Registration';
+import Navigation from './components/Navigation';
+import NavigationBar from './components/NavigationBar';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/' component={Welcome} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/register' component={Registration} />
+
+        <Route exact path='/recoverpassword' component={RecoverPassword} />
+        <Route exact path='/navigation' component={Navigation} />
+        <Route exact path='/navigationbar' component={NavigationBar} />
+
+        <Route>
+          <NoMatch />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+
   );
 }
 
