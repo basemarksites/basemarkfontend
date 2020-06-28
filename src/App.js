@@ -1,4 +1,5 @@
 import React from 'react';
+import './components/Font-Awesome_Icons/fonts';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -11,6 +12,8 @@ import RecoverPassword from './components/RecoverPassword';
 import Registration from './components/Registration';
 import Navigation from './components/Navigation';
 import NavigationBar from './components/NavigationBar';
+import Footerpage from './components/Footer';
+
 
 
 function App() {
@@ -24,6 +27,8 @@ function App() {
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />
         <Route exact path='/navigationbar' component={NavigationBar} />
+        <Route exact path='/footer' component={Footerpage} />
+        
 
         <Route>
           <NoMatch />
