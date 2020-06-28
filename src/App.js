@@ -11,6 +11,10 @@ import RecoverPassword from './components/RecoverPassword';
 import Registration from './components/Registration';
 import Navigation from './components/Navigation';
 import NavigationBar from './components/NavigationBar';
+import ProductCategory from './components/admin/ProductCategory';
+import AddProducts from './components/admin/AddProducts';
+import ViewProducts from './components/admin/ViewProducts';
+import UpdateProduct from './components/admin/UpdateProduct';
 
 
 function App() {
@@ -20,6 +24,10 @@ function App() {
         <Route exact path='/' component={Welcome} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Registration} />
+        <Route exact path='/productcategory' component={ProductCategory} />
+        <Route exact path='/addproduct' component={AddProducts} />
+        <Route exact path='/viewproducts' component={ViewProducts} />
+        <Route exact path='/updateproduct/:id' component={UpdateProduct} />
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />

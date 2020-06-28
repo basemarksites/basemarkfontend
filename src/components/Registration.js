@@ -28,7 +28,7 @@ export default class Registration extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:3001/users/signup', this.state)
+        axios.post('http://localhost:3002/users/signup', this.state)
             .then((response) => {
                 localStorage.setItem('token', response.data.token)
                 this.setState({
