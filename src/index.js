@@ -6,9 +6,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './footer.css';
-import App from './App';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+
 
 import * as serviceWorker from './serviceWorker';
 
