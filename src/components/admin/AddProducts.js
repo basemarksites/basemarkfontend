@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Container, Row, Col, Form, Input, FormGroup, Label, Button, CustomInput } from 'reactstrap'
+import { Container, Row, Col, Form, Input, FormGroup, Label, Button, CustomInput, Alert } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 import Navigation from '../Navigation'
@@ -77,6 +77,8 @@ export default class AddProducts extends Component {
         })
     }
 
+
+
     render() {
         return (
             <div>
@@ -103,19 +105,29 @@ export default class AddProducts extends Component {
                                 <FormGroup>
                                     <Label for="product_category">Category</Label>
                                     <Input type="select" name="product_category" id="product_category" value={this.state.product_category} onChange={this.handleChange} >
-                                        <option >Select Product Category</option>
-                                        <option>Women</option>
+
+                                        <option>Select Product Category</option>
+                                        <option selected >Women</option>
                                         <option>Men</option>
                                         <option>Kids</option>
+
                                     </Input>
                                 </FormGroup>
 
                                 <FormGroup>
                                     <Label for="product_size">Size</Label>
                                     <Input type="text" name="product_size" id="product_size" value={this.state.product_size} onChange={this.handleChange} />
+
+                                    <div>
+                                        <CustomInput multiple={true} type="checkbox" value={this.state.product_size} onChange={this.handleChange} id="small" label="S" inline />
+                                        <CustomInput multiple={true} type="checkbox" value={this.state.product_size} onChange={this.handleChange} id="medium" label="M" inline />
+                                        <CustomInput multiple={true} type="checkbox" value={this.state.product_size} onChange={this.handleChange} id="large" label="L" inline />
+                                        <CustomInput type="checkbox" id="extra large" label="XL" inline />
+                                        <CustomInput type="checkbox" id=" double extra large" label="2XL" inline />
+                                        <CustomInput type="checkbox" id=" triple extra large" label="3XL" inline />
+                                        <CustomInput type="checkbox" id=" double extra large" label="4XL" inline />
+                                    </div>
                                 </FormGroup>
-
-
 
                                 <FormGroup>
                                     <Label for="description">Description</Label>
