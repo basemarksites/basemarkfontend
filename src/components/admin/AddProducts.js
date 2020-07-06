@@ -23,7 +23,8 @@ export default class AddProducts extends Component {
             selectedFile: null,
             small: false,
             medium: false,
-            large: false
+            large: false,
+           
 
 
 
@@ -69,7 +70,7 @@ export default class AddProducts extends Component {
         e.preventDefault();
         const data = new FormData()
         data.append('imageFile', this.state.selectedFile)
-        axios.post('http://localhost:3002/uploads', data, this.state.config)
+        axios.post('http://localhost:3001/uploads', data)
             .then((response) => {
                 console.log(response.data)
                 this.setState({
@@ -89,7 +90,7 @@ export default class AddProducts extends Component {
       }
     }
 
-        axios.post('http://localhost:3002/products', {
+        axios.post('http://localhost:3001/products', {
             image: this.state.image,
             product_title: this.state.product_title,
             product_category: this.state.product_category,
@@ -197,7 +198,7 @@ export default class AddProducts extends Component {
          
             
               <input  style = {{ margin: "3px"}}
-              type="checkbox"
+                type="checkbox"
 
                 checked={this.state.large}
                 onChange={this.onChangeLarge}
