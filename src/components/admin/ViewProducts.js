@@ -23,7 +23,7 @@ export default class ViewProducts extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3002/products', this.config)
+        axios.get('http://localhost:3001/products', this.config)
             .then((response) => {
                 const data = response.data;
                 this.setState({ product: data });
@@ -33,7 +33,7 @@ export default class ViewProducts extends Component {
     }
 
     deleteProduct = (product_id) => {
-        axios.delete(`http://localhost:3002/products/${product_id}`, this.state.config)
+        axios.delete(`http://localhost:3001/products/${product_id}`, this.state.config)
             .then(response => {
                 const filteredProduct = this.state.product.filter((i) => {
                     return i._id !== product_id
@@ -58,8 +58,8 @@ export default class ViewProducts extends Component {
 
                     <CardColumns>
                         {this.state.product.map((allProducts =>
-                            <Card>
-                                <CardImg className="cardimg" top width="70%" height="280px" src={`http://localhost:3002/uploads/${allProducts.image}`} alt="Card_image" />
+                            <Card key={allProducts._id}>
+                                <CardImg className="cardimg" top width="70%" height="280px" src={`http://localhost:3001/uploads/${allProducts.image}`} alt="Card_image" />
                                 <CardBody>
                                     <CardTitle className="cardtitle">{allProducts.product_title}</CardTitle>
                                     <hr></hr>
@@ -67,7 +67,7 @@ export default class ViewProducts extends Component {
                                     <Link to={`/updateproduct/${allProducts._id}`}>
                                         <Button color="primary" style={{ margin: '0px 60px 0px 60px' }}> Update</Button>
                                     </Link>
-                                    <Button color="danger" >Delete <FaTrashAlt className="icons" onClick={() => this.deleteProduct(allProducts._id)}></FaTrashAlt> </Button>
+                                    <Button color="danger" onClick={() => this.deleteProduct(allProducts._id)} >Delete <FaTrashAlt className="icons" ></FaTrashAlt> </Button>
                                 </CardBody>
                             </Card>
                         ))}

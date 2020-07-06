@@ -25,37 +25,6 @@ export default class AddProducts extends Component {
             medium: false,
             large: false
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
         }
     }
 
@@ -69,7 +38,7 @@ export default class AddProducts extends Component {
         e.preventDefault();
         const data = new FormData()
         data.append('imageFile', this.state.selectedFile)
-        axios.post('http://localhost:3002/uploads', data, this.state.config)
+        axios.post('http://localhost:3001/upload', data, this.state.config)
             .then((response) => {
                 console.log(response.data)
                 this.setState({
@@ -83,13 +52,13 @@ export default class AddProducts extends Component {
         console.log(this.state);
 
         let checkArray = [];
-    for (var key in this.state) {
-      if (this.state[key] === true) {
-        checkArray.push(key);
-      }
-    }
+        for (var key in this.state) {
+            if (this.state[key] === true) {
+                checkArray.push(key);
+            }
+        }
 
-        axios.post('http://localhost:3002/products', {
+        axios.post('http://localhost:3001/products', {
             image: this.state.image,
             product_title: this.state.product_title,
             product_category: this.state.product_category,
@@ -119,39 +88,36 @@ export default class AddProducts extends Component {
     }
     onChangeSmall = () => {
         this.setState(initialState => ({
-          small: !initialState.small,
+            small: !initialState.small,
         }));
-      }
-    
-      onChangeMedium = () => {
+    }
+
+    onChangeMedium = () => {
         this.setState(initialState => ({
-          medium: !initialState.medium,
+            medium: !initialState.medium,
         }));
-      }
-    
-      onChangeLarge = () => {
+    }
+
+    onChangeLarge = () => {
         this.setState(initialState => ({
             large: !initialState.large,
         }));
-      }
+    }
 
     render() {
         return (
             <div>
                 <Navigation></Navigation>
 
-                <Container>
+                <Container className="addProduct">
                     <h2 style={{ margin: '20px 0px 0px 0px' }}>Add Product </h2>
 
                     <Link to={`/viewproducts`}>
                         <Button color="primary" style={{ margin: '-30px 60px 0px 60px', float: 'right' }}> View products</Button>
                     </Link>
                     <hr></hr>
-
-
-
                     <Row>
-                        <Col sm="12" md={{ size: 6, offset: 3 }}>
+                        <Col sm="12" md={{ size: 10, offset: 1 }}>
                             <Form>
                                 <FormGroup>
                                     <Label for="product_title">Product name</Label>
@@ -168,44 +134,39 @@ export default class AddProducts extends Component {
                                     </Input>
                                 </FormGroup>
 
-                                <FormGroup style = {{ margin: "6px"}}>
+                                <FormGroup style={{ margin: "6px" }}>
                                     <Label for="product_size">Size</Label> <br></br>
-                                   
-            
-              <input  style = {{ margin: "5px"}}
-               type="checkbox"
-                checked={this.state.small}
-                onChange={this.onChangeSmall}
-               
-              />
+
+
+                                    <input style={{ margin: "5px" }}
+                                        type="checkbox"
+                                        checked={this.state.small}
+                                        onChange={this.onChangeSmall}
+
+                                    />
              Small
-           
-         
+              <input style={{ margin: "4px" }}
+                                        type="checkbox"
+                                        checked={this.state.medium}
+                                        onChange={this.onChangeMedium}
 
-         
-            
-              <input  style = {{ margin: "4px"}}
-              type="checkbox"
-                checked={this.state.medium}
-                onChange={this.onChangeMedium}
-                
-              />
+                                    />
               Medium
-          
-         
 
-         
-            
-              <input  style = {{ margin: "3px"}}
-              type="checkbox"
 
-                checked={this.state.large}
-                onChange={this.onChangeLarge}
-                
-              />
+
+
+
+              <input style={{ margin: "3px" }}
+                                        type="checkbox"
+
+                                        checked={this.state.large}
+                                        onChange={this.onChangeLarge}
+
+                                    />
               Large
-           
-         
+
+
                                 </FormGroup>
 
 
@@ -223,10 +184,16 @@ export default class AddProducts extends Component {
                                 <FormGroup>
 
                                     <Label for="image">Product image</Label>
-                                    <CustomInput type='file' id='image'
-                                        onChange={this.handleFileSelect} />
-                                    {this.state.selectedFile ? (<FileUploadButton
-                                        uploadFile={this.uploadFile} />) : null}
+                                    <FormGroup>
+                                        <img className='img-thumbnail productImage'
+                                            width='400' src={`http://localhost:3001/uploads/${this.state.image}`}
+                                            alt="profile" />
+                                        <CustomInput type='file' id='image'
+                                            onChange={this.handleFileSelect} />
+                                        {this.state.selectedFile ? (<FileUploadButton
+                                            uploadFile={this.uploadFile} />) : null}
+                                    </FormGroup>
+
 
                                 </FormGroup>
 

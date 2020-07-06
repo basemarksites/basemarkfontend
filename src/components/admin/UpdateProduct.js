@@ -22,7 +22,7 @@ export default class UpdateProduct extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3002/products/' + (this.props.match.params.id), this.state.config)
+        axios.get('http://localhost:3001/products/' + (this.props.match.params.id), this.state.config)
             .then((response) => {
                 console.log(response.data)
                 this.setState({
@@ -42,7 +42,7 @@ export default class UpdateProduct extends Component {
         e.preventDefault();
         const data = new FormData()
         data.append('imageFile', this.state.selectedFile)
-        axios.post('http://localhost:3002/uploads', data, this.state.config)
+        axios.post('http://localhost:3001/upload', data, this.state.config)
             .then((response) => {
                 console.log(response.data)
                 this.setState({
@@ -53,7 +53,7 @@ export default class UpdateProduct extends Component {
 
     updateProduct = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:3002/products/' + (this.props.match.params.id), this.state.product, this.state.config)
+        axios.put('http://localhost:3001/products/' + (this.props.match.params.id), this.state.product, this.state.config)
             .then((response) => {
                 console.log(response.data)
             }).catch((err) => console.log(err.response))
@@ -96,8 +96,6 @@ export default class UpdateProduct extends Component {
                                         onChange={(e) => this.handleChange(e)} />
                                 </FormGroup>
 
-
-
                                 <FormGroup>
                                     <Label for="description">Description</Label>
                                     <Input type="textarea" name="description" id="description" value={this.state.product.description}
@@ -114,7 +112,7 @@ export default class UpdateProduct extends Component {
 
                                     <Label for="image">Product image</Label> <br></br>
                                     <img className='img-thumbnail'
-                                        width='400' src={`http://localhost:3002/uploads/${this.state.product.image}`}
+                                        width='400' src={`http://localhost:3001/uploads/${this.state.product.image}`}
                                         alt="itemImage" />
                                     <CustomInput type='file' id='image'
                                         onChange={this.handleFileSelect} />
