@@ -4,32 +4,62 @@ import { Container, Row, Col, Form, Input, FormGroup, Label, Button, CustomInput
 import Navigation from '../Navigation'
 import FileUploadButton from '../FileUploadButton'
 import axios from 'axios'
+import { FaItalic } from 'react-icons/fa'
 
 export default class UpdateProduct extends Component {
+
     constructor(props) {
         super(props)
-
         this.state = {
             product: {},
-            selectedFile: null
+            product_size: [],
+            selectedFile: null,
+            checksize: [],
+            small: false,
+            medium: false,
+            large: false,
+
         }
     }
 
-    handleChange(e) {
+    handleChange = (e) => {
         this.setState({
-            product: { ...this.state.product, [e.target.name]: e.target.value }
+            product: { ...this.state.product, [e.target.name]: e.target.value },
+
         })
     }
+
+
 
     componentDidMount() {
         axios.get('http://localhost:3001/products/' + (this.props.match.params.id), this.state.config)
             .then((response) => {
-                console.log(response.data)
+
                 this.setState({
-                    product: response.data
+                    product: response.data,
+                    checksize: response.data.product_size
+
                 })
 
+                console.log(this.state.checksize)
             }).catch((err) => console.log(err.response));
+    }
+    onChangeSmall = () => {
+        this.setState(initialState => ({
+            small: !initialState.small,
+        }));
+    }
+
+    onChangeMedium = () => {
+        this.setState(initialState => ({
+            medium: !initialState.medium,
+        }));
+    }
+
+    onChangeLarge = () => {
+        this.setState(initialState => ({
+            large: !initialState.large,
+        }));
     }
 
     handleFileSelect = (e) => {
@@ -53,7 +83,26 @@ export default class UpdateProduct extends Component {
 
     updateProduct = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:3001/products/' + (this.props.match.params.id), this.state.product, this.state.config)
+
+        let checkArray = [];
+        for (var key in this.state) {
+            if (this.state[key] === true) {
+                checkArray.push(key);
+            }
+        }
+        console.log(checkArray);
+        // {
+        //     image: this.state.image,
+        //         product_title: this.state.product_title,
+        //             product_category: this.state.product_category,
+        //                 product_size: checkArray,
+        //                     description: this.state.description,
+        //                         price: this.state.price
+        // },
+        //product_size: checkArray,
+        axios.put('http://localhost:3001/products/' + (this.props.match.params.id), {
+            ...this.state.product, product_size: checkArray
+        }, this.state.config)
             .then((response) => {
                 console.log(response.data)
             }).catch((err) => console.log(err.response))
@@ -64,6 +113,24 @@ export default class UpdateProduct extends Component {
 
 
     render() {
+
+        {
+            this.state.checksize.map(d => {
+                if (d === "small") {
+                    this.state.small = true
+                }
+
+                if (d === "medium") {
+                    this.state.medium = true
+                }
+
+                if (d === "large") {
+                    this.state.large = true
+                }
+
+            })
+        }
+
         return (
             <div>
                 <Navigation></Navigation>
@@ -91,10 +158,31 @@ export default class UpdateProduct extends Component {
                                 </FormGroup>
 
                                 <FormGroup>
-                                    <Label for="product_size">Size</Label>
-                                    <Input type="text" name="product_size" id="product_size" value={this.state.product.product_size}
-                                        onChange={(e) => this.handleChange(e)} />
-                                </FormGroup>
+                                    <Label for="product_size">Size</Label> <br></br>
+
+                                    <input style={{ margin: "5px" }}
+                                        type="checkbox"
+                                        checked={this.state.small}
+                                        onChange={this.onChangeSmall}
+                                    />Small
+
+                                     <input style={{ margin: "5px" }}
+                                        type="checkbox"
+                                        checked={this.state.medium}
+                                        onChange={this.onChangeMedium}
+
+                                    />
+                                        Medium
+
+                                    <input style={{ margin: "5px" }}
+                                        type="checkbox"
+                                        checked={this.state.large}
+                                        onChange={this.onChangeLarge}
+
+                                    />
+                                    Large
+
+                                    </FormGroup>
 
                                 <FormGroup>
                                     <Label for="description">Description</Label>

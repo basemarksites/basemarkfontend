@@ -58,7 +58,7 @@ export default class ViewProducts extends Component {
 
                     <CardColumns>
                         {this.state.product.map((allProducts =>
-                            <Card key={allProducts._id}>
+                            <Card>
                                 <CardImg className="cardimg" top width="70%" height="280px" src={`http://localhost:3001/uploads/${allProducts.image}`} alt="Card_image" />
                                 <CardBody>
                                     <CardTitle className="cardtitle">{allProducts.product_title}</CardTitle>
@@ -67,7 +67,7 @@ export default class ViewProducts extends Component {
                                     <Link to={`/updateproduct/${allProducts._id}`}>
                                         <Button color="primary" style={{ margin: '0px 60px 0px 60px' }}> Update</Button>
                                     </Link>
-                                    <Button color="danger" onClick={() => this.deleteProduct(allProducts._id)} >Delete <FaTrashAlt className="icons" ></FaTrashAlt> </Button>
+                                    <Button color="danger" onClick={() => this.deleteProduct(allProducts._id)}>Delete <FaTrashAlt className="icons" ></FaTrashAlt> </Button>
                                 </CardBody>
                             </Card>
                         ))}
