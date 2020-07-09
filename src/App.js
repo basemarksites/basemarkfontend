@@ -22,8 +22,14 @@ import ViewProducts from './components/admin/ViewProducts';
 import UpdateProduct from './components/admin/UpdateProduct';
 
 import MensProduct from './components/view-pages/Mens';
+import WomensProduct from './components/view-pages/WomensProduct';
+import KidsProduct from './components/view-pages/KidsProducts';
 
+import AllProduct from './components/view-pages/AllProducts';
 
+import Accessories from './components/view-pages/Accessories';
+import Clothes from './components/view-pages/Clothes';
+import Shoes from './components/view-pages/Shoes';
 
 function App() {
   return (
@@ -39,6 +45,14 @@ function App() {
         <Route exact path='/updateproduct/:id' component={UpdateProduct} />
 
         <Route exact path='/mensProducts' component={MensProduct} />
+        <Route exact path='/womensProducts' component={WomensProduct} />
+        <Route exact path='/kidsProducts' component={KidsProduct} />
+
+        <Route exact path='/allProducts' component={AllProduct} />
+
+        <Route exact path='/accessories' component={Accessories} />
+        <Route exact path='/clothes' component={Clothes} />
+        <Route exact path='/shoes' component={Shoes} />
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />

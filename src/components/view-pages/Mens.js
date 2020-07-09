@@ -22,7 +22,7 @@ export default class Mens extends Component {
         }
     }
     componentDidMount() {
-        axios.get('http://localhost:3001/products/fiteredProductWithCategory/' + `Men`, this.config)
+        axios.get('http://localhost:3001/products/fiteredProductWithGender/' + `Men`, this.config)
             .then((response) => {
                 const data = response.data;
                 this.setState({ product: data });

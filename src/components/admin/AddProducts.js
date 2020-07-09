@@ -144,8 +144,9 @@ export default class AddProducts extends Component {
                                     <Label for="product_gender">Specially For</Label>
                                     <Input type="select" name="product_gender" id="product_gender" value={this.state.product_gender} onChange={this.handleChange} >
                                         <option >Select Product For</option>
-                                        <option>Women</option>
+
                                         <option>Men</option>
+                                        <option>Women</option>
                                         <option>Kids</option>
                                     </Input>
                                 </FormGroup>

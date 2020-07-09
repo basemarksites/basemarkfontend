@@ -18,7 +18,7 @@ export default class UpdateProduct extends Component {
             small: false,
             medium: false,
             large: false,
-
+            product_gender: ''
         }
     }
 
@@ -151,8 +151,17 @@ export default class UpdateProduct extends Component {
                                     <Label for="product_category">Category</Label>
                                     <Input onChange={(e) => this.handleChange(e)} type="select" name="product_category" id="product_category" value={this.state.product.product_category}  >
                                         <option >Select Product Category</option>
-                                        <option>Women</option>
+                                        <option>Clothings</option>
+                                        <option>Shoes</option>
+                                        <option>Accessories</option>
+                                    </Input>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="product_gender">For</Label>
+                                    <Input onChange={(e) => this.handleChange(e)} type="select" name="product_gender" id="product_gender" value={this.state.product.product_gender}  >
+                                        <option >Select Product For</option>
                                         <option>Men</option>
+                                        <option>Women</option>
                                         <option>Kids</option>
                                     </Input>
                                 </FormGroup>
@@ -193,6 +202,11 @@ export default class UpdateProduct extends Component {
                                 <FormGroup>
                                     <Label for="price">Price</Label>
                                     <Input type="number" name="price" id="price" value={this.state.product.price}
+                                        onChange={(e) => this.handleChange(e)} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="stock">Stock</Label>
+                                    <Input type="number" name="stock" id="stock" value={this.state.product.stock}
                                         onChange={(e) => this.handleChange(e)} />
                                 </FormGroup>
 
