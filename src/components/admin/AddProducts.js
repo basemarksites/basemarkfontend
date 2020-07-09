@@ -20,6 +20,8 @@ export default class AddProducts extends Component {
             description: '',
             price: '',
             product: {},
+            product_gender: '',
+            stock: '',
             selectedFile: null,
             small: false,
             medium: false,
@@ -60,9 +62,11 @@ export default class AddProducts extends Component {
         axios.post('http://localhost:3001/products', {
             image: this.state.image,
             product_title: this.state.product_title,
+            product_gender: this.state.product_gender,
             product_category: this.state.product_category,
             product_size: checkArray,
             description: this.state.description,
+            stock: this.state.stock,
             price: this.state.price
         }, this.state.config)
             .then((response) => {
@@ -130,6 +134,16 @@ export default class AddProducts extends Component {
                                     <Label for="product_category">Category</Label>
                                     <Input type="select" name="product_category" id="product_category" value={this.state.product_category} onChange={this.handleChange} >
                                         <option >Select Product Category</option>
+                                        <option>Clothings</option>
+                                        <option>Shoes</option>
+                                        <option>Accessories</option>
+                                    </Input>
+                                </FormGroup>
+
+                                <FormGroup>
+                                    <Label for="product_gender">Specially For</Label>
+                                    <Input type="select" name="product_gender" id="product_gender" value={this.state.product_gender} onChange={this.handleChange} >
+                                        <option >Select Product For</option>
                                         <option>Women</option>
                                         <option>Men</option>
                                         <option>Kids</option>
@@ -144,7 +158,6 @@ export default class AddProducts extends Component {
                                         type="checkbox"
                                         checked={this.state.small}
                                         onChange={this.onChangeSmall}
-
                                     /> Small
 
                                     <input style={{ margin: "4px" }}
@@ -171,6 +184,10 @@ export default class AddProducts extends Component {
                                 <FormGroup>
                                     <Label for="price">Price</Label>
                                     <Input type="number" name="price" id="price" value={this.state.price} onChange={this.handleChange} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="stock">Stock</Label>
+                                    <Input type="number" name="stock" id="stock" value={this.state.stock} onChange={this.handleChange} />
                                 </FormGroup>
 
                                 <FormGroup>

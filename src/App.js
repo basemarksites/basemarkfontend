@@ -21,6 +21,8 @@ import AddProducts from './components/admin/AddProducts';
 import ViewProducts from './components/admin/ViewProducts';
 import UpdateProduct from './components/admin/UpdateProduct';
 
+import MensProduct from './components/view-pages/Mens';
+
 
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
         <Route exact path='/addproduct' component={AddProducts} />
         <Route exact path='/viewproducts' component={ViewProducts} />
         <Route exact path='/updateproduct/:id' component={UpdateProduct} />
+
+        <Route exact path='/mensProducts' component={MensProduct} />
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />
