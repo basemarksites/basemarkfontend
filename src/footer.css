@@ -1,0 +1,75 @@
+
+/* Spacing Top */
+.section-padding-80-0 {
+  padding-top: 80px;
+  padding-bottom: 0; }
+
+
+/*  Footer CSS */
+.footer-area {
+  position: relative;
+  z-index: 1; }
+
+.single-footer-widget {
+  position: relative;
+  z-index: 1; }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single-footer-widget p {
+      font-size: 14px; } }
+  .single-footer-widget .widget-title {
+    font-size: 22px;
+    color: #252525;
+    margin-bottom: 30px;
+    display: block;
+    text-transform: capitalize; }
+  .single-footer-widget .open-time p {
+    margin-bottom: 8px; }
+    .single-footer-widget .open-time p:last-child {
+      margin-bottom: 0; }
+  .single-footer-widget .social-info {
+    position: relative;
+    z-index: 1;
+    margin-top: 30px; }
+    .single-footer-widget .social-info a {
+      display: inline-block;
+      font-size: 18px;
+      color: #ffffff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 40px; }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .single-footer-widget .social-info a {
+          margin-right: 5px; } }
+      .single-footer-widget .social-info a.facebook {
+        background-color: #4b62b3; }
+      .single-footer-widget .social-info a.twitter {
+        background-color: #03baeb; }
+      .single-footer-widget .social-info a.google-plus {
+        background-color: #cb242e; }
+      .single-footer-widget .social-info a.instagram {
+        background-color: #057ad7; }
+      .single-footer-widget .social-info a:focus, .single-footer-widget .social-info a:hover {
+        background-color: #bca858; }
+  .single-footer-widget .contact-address p {
+    margin-bottom: 8px; }
+    .single-footer-widget .contact-address p:last-child {
+      margin-bottom: 0; }
+  .single-footer-widget .footer-logo {
+    display: block;
+    margin-bottom: 30px; }
+
+.copywrite-text {
+  position: relative;
+  z-index: 1; }
+  .copywrite-text p {
+    font-size: 16px;
+    color: #6e6e6e;
+    margin-bottom: 0; }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .copywrite-text p {
+        font-size: 14px; } }
+  
+
