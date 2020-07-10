@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Navigation from '../Navigation'
+import NavigationBar from '../NavigationBar'
 
 import { Container, CardColumns, Card, CardImg, CardBody, CardTitle, Button, Label } from 'reactstrap'
 import { FaTrashAlt } from 'react-icons/fa';
@@ -37,7 +38,7 @@ export default class ViewProducts extends Component {
         return (
             <div>
                 <Navigation></Navigation>
-
+                <NavigationBar></NavigationBar>
                 <Container>
                     <h2 style={{ margin: '20px 0px 0px 0px' }}>All Products</h2>
                     <hr></hr>
