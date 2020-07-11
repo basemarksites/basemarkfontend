@@ -6,6 +6,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './footer.css';
+import './Homepage.css';
 
 
 import * as serviceWorker from './serviceWorker';
