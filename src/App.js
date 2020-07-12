@@ -31,6 +31,7 @@ import Clothes from './components/view-pages/Clothes';
 import Shoes from './components/view-pages/Shoes';
 
 import ProductDetails from './components/view-pages/ProductDetail'
+import SearchedProducts from './components/view-pages/SearchProducts'
 
 function App() {
   return (
@@ -56,14 +57,15 @@ function App() {
         <Route exact path='/shoes' component={Shoes} />
 
         <Route exact path='/productDetails/:id' component={ProductDetails}></Route>
+        <Route exact path='/searchProducts/:id' component={SearchedProducts}></Route>
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />
         <Route exact path='/navigationbar' component={NavigationBar} />
         <Route exact path='/footer' component={Footerpage} />
 
-        <Route exact path ='/home' component={Homepage}/>
-        
+        <Route exact path='/home' component={Homepage} />
+
 
 
 
