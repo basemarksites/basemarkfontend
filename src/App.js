@@ -14,12 +14,11 @@ import Navigation from './components/Navigation';
 import NavigationBar from './components/NavigationBar';
 
 import Footerpage from './components/Footer';
-
-
 import ProductCategory from './components/admin/ProductCategory';
 import AddProducts from './components/admin/AddProducts';
 import ViewProducts from './components/admin/ViewProducts';
 import UpdateProduct from './components/admin/UpdateProduct';
+import Homepage from './components/Homepage';
 
 import MensProduct from './components/view-pages/Mens';
 import WomensProduct from './components/view-pages/WomensProduct';
@@ -62,6 +61,9 @@ function App() {
         <Route exact path='/navigation' component={Navigation} />
         <Route exact path='/navigationbar' component={NavigationBar} />
         <Route exact path='/footer' component={Footerpage} />
+
+        <Route exact path ='/home' component={Homepage}/>
+        
 
 
 
