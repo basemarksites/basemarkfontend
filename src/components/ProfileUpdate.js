@@ -29,9 +29,9 @@ export default class  ProfileUpdate extends Component {
             });
     }
 
-    handleChange = (e) => {
+    handleChange(e) {
         this.setState({
-            [e.target.name]: e.target.value
+            user: { ...this.state.user, [e.target.name]: e.target.value }
         })
     }
 
@@ -61,31 +61,31 @@ export default class  ProfileUpdate extends Component {
                                     <Label for="fullName">Full Name</Label>
                                     <Input type="text" name="fullName" id="fullName"
                                         value={this.state.user.fullName}
-                                        onChange={this.handleChange} />
+                                        onChange={(e) => this.handleChange(e)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="address">Address</Label>
                                     <Input type="text" name="address" id="address"
                                         value={this.state.user.address}
-                                        onChange={this.handleChange} />
+                                        onChange={(e) => this.handleChange(e)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="email">Email</Label>
                                     <Input type="text" name="email" id="email"
                                         value={this.state.user.email}
-                                        onChange={this.handleChange} />
+                                        onChange={(e) => this.handleChange(e)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="phone">Phone Number </Label>
                                     <Input type="telephone" name="phone" id="phone"
                                         value={this.state.user.phone}
-                                        onChange={this.handleChange} />
+                                        onChange={(e) => this.handleChange(e)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="username">Username </Label>
                                     <Input type="text" name="username" id="username"
                                         value={this.state.user.username}
-                                        onChange={this.handleChange} />
+                                        onChange={(e) => this.handleChange(e)} />
                                 </FormGroup>
                                 
 
