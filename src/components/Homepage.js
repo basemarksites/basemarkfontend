@@ -16,15 +16,14 @@ export default class Homepage extends Component {
         return (
             <div>
                 <Jumbotron className="imagebutton">
-             
-
                     <Row>
-                    <Col sm="12" md={{ size: 8, offset: 2 }}>
+                    <Col sm="16" md={{ size: 8, offset: 2 }}>
                         <Label className="heading">A unique store at your door</Label>
-                        <InputGroup>
+                      
+                        <InputGroup id="searchbar">
                             <Input />
                             <InputGroupAddon addonType="append">
-                                <Button color="success"> Find best item</Button>
+                                <Button className="search" color="success"> Find best item</Button>
                             </InputGroupAddon>
                         </InputGroup>
                     </Col>
