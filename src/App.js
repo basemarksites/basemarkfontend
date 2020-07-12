@@ -30,6 +30,7 @@ import AllProduct from './components/view-pages/AllProducts';
 import Accessories from './components/view-pages/Accessories';
 import Clothes from './components/view-pages/Clothes';
 import Shoes from './components/view-pages/Shoes';
+import Update from './components/ProfileUpdate';
 
 function App() {
   return (
@@ -58,6 +59,8 @@ function App() {
         <Route exact path='/navigation' component={Navigation} />
         <Route exact path='/navigationbar' component={NavigationBar} />
         <Route exact path='/footer' component={Footerpage} />
+
+        <PrivateRoute exact path= '/update' component={Update} />
 
 
 

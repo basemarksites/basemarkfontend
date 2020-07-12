@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 import Navigation from '../Navigation'
 import FileUploadButton from '../FileUploadButton'
+import Welcome from '../Welcome'
 
 
 
@@ -106,11 +107,12 @@ export default class AddProducts extends Component {
             large: !initialState.large,
         }));
     }
-
+    
     render() {
         return (
             <div>
-                <Navigation></Navigation>
+                
+                <Welcome></Welcome>
 
                 <Container>
                     <h2 style={{ margin: '20px 0px 0px 0px' }}>Add Product </h2>
