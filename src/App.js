@@ -31,6 +31,8 @@ import Accessories from './components/view-pages/Accessories';
 import Clothes from './components/view-pages/Clothes';
 import Shoes from './components/view-pages/Shoes';
 
+import ProductDetails from './components/view-pages/ProductDetail'
+
 function App() {
   return (
     <BrowserRouter>
@@ -53,6 +55,8 @@ function App() {
         <Route exact path='/accessories' component={Accessories} />
         <Route exact path='/clothes' component={Clothes} />
         <Route exact path='/shoes' component={Shoes} />
+
+        <Route exact path='/productDetails/:id' component={ProductDetails}></Route>
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />
