@@ -12,6 +12,14 @@ import Welcome from '../Welcome'
 export default class AddProducts extends Component {
     constructor(props) {
         super(props)
+        
+    
+            this.handleLogout = (e) => {
+                e.preventDefault();
+                localStorage.removeItem('token');
+                this.props.history.push('/login')
+            }
+        
 
         this.state = {
             image: '',

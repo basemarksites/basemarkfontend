@@ -12,6 +12,7 @@ export default class Login extends Component {
         this.state = {
             username: '',
             password: '',
+            isLoggedIn: false,
             role:'',
             config: {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -30,36 +31,34 @@ export default class Login extends Component {
             .then((response) => {
                 console.log(response.data)
                 localStorage.setItem('token', response.data.token)
+              
                
-                localStorage.setItem('success',response.data.success)
+                
                 
                 this.setState({
-                    email:'',
-                    password:'',
-                    role:response.data.role,
+                    role: response.data.role
+                   
                    
                 })
+                
+                console.log(this.state.role)
                
             }).catch((err) => console.log(err.response))
 
-            axios.get('http://localhost:3001/users/myProfile', this.state.config)
-            .then((response) => {
-                localStorage.setItem('role',response.data.role)
-                this.setState({
-                    role: response.data.role
-                })
-                console.log(this.state.role)
+           
                 
-            });
+                
+           
            
        
     }
     render() {
         
-        if (this.state.role == 'admin') {
+        if (this.state.role === 'admin'){
             return<Redirect to='/addproduct'/>
-          } else if (this.state.role == 'customer'){
+          } else  if( this.state.role === 'customer'){
             return<Redirect to='/allproducts'/>
+
           }
         return (
             <div >

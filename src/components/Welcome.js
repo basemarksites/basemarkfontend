@@ -3,12 +3,22 @@ import Navigation from './Navigation'
 import NavigationBar from './NavigationBar'
 import { Button } from 'reactstrap'
 
+
 export default class Welcome extends Component {
-    handleLogout = (e) => {
+    constructor(props) {
+        super(props)
+
+        
+    
+        
+    }
+   handleLogout = (e) => {
         e.preventDefault();
         localStorage.removeItem('token');
         this.props.history.push('/login')
     }
+    
+    
 
     render() {
         return (

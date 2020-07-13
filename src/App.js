@@ -21,6 +21,7 @@ import AddProducts from './components/admin/AddProducts';
 import ViewProducts from './components/admin/ViewProducts';
 import UpdateProduct from './components/admin/UpdateProduct';
 
+
 import MensProduct from './components/view-pages/Mens';
 import WomensProduct from './components/view-pages/WomensProduct';
 import KidsProduct from './components/view-pages/KidsProducts';
@@ -41,7 +42,7 @@ function App() {
         <Route exact path='/register' component={Registration} />
 
         <Route exact path='/productcategory' component={ProductCategory} />
-        <Route exact path='/addproduct' component={AddProducts} />
+        <PrivateRoute path='/addproduct' component={AddProducts} />
         <Route exact path='/viewproducts' component={ViewProducts} />
         <Route exact path='/updateproduct/:id' component={UpdateProduct} />
 
@@ -49,7 +50,7 @@ function App() {
         <Route exact path='/womensProducts' component={WomensProduct} />
         <Route exact path='/kidsProducts' component={KidsProduct} />
 
-        <Route exact path='/allProducts' component={AllProduct} />
+        <PrivateRoute path='/allProducts' component={AllProduct} />
 
         <Route exact path='/accessories' component={Accessories} />
         <Route exact path='/clothes' component={Clothes} />
