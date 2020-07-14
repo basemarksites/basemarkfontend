@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navigation from './Navigation'
 import NavigationBar from './NavigationBar'
 import { Button } from 'reactstrap'
+import Home from './Homepage'
 
 export default class Welcome extends Component {
     handleLogout = (e) => {
@@ -15,6 +16,7 @@ export default class Welcome extends Component {
             <div>
                 <Navigation></Navigation>
                 <NavigationBar></NavigationBar>
+                <Home></Home>
                 <Button color="primary" onClick={this.handleLogout}>
                     Logout
             </Button>

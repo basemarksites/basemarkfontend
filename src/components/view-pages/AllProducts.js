@@ -75,7 +75,7 @@ export default class ViewProducts extends Component {
                                     <CardTitle className="cardtitle">{allProducts.product_title}</CardTitle>
                                     <CardTitle className="cardtitle">Rs: {allProducts.price}</CardTitle>
                                     <hr></hr>
-                                    <Link to={`/viewProducts/${allProducts._id}`}>
+                                    <Link to={`/productDetails/${allProducts._id}`}>
                                         <Button color="primary" > More Details</Button>
                                     </Link>
                                     <Link to={`/addToCart/${allProducts._id}`}>
