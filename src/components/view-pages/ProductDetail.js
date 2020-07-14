@@ -36,6 +36,7 @@ export default class ProductDetail extends Component {
         return (
             <div>
                 <Label>{this.state.product.product_title}</Label>
+
             </div>
         )
     }
