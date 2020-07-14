@@ -29,6 +29,7 @@ import AllProduct from './components/view-pages/AllProducts';
 import Accessories from './components/view-pages/Accessories';
 import Clothes from './components/view-pages/Clothes';
 import Shoes from './components/view-pages/Shoes';
+import ViewProductDetails from './components/view-pages/ViewProductDetails';
 
 import ProductDetails from './components/view-pages/ProductDetail'
 import SearchedProducts from './components/view-pages/SearchProducts'
@@ -51,6 +52,7 @@ function App() {
         <Route exact path='/kidsProducts' component={KidsProduct} />
 
         <Route exact path='/allProducts' component={AllProduct} />
+        <Route exact path='/viewproductdetails/:id' component={ViewProductDetails} />
 
         <Route exact path='/accessories' component={Accessories} />
         <Route exact path='/clothes' component={Clothes} />
