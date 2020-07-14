@@ -21,7 +21,7 @@ export default class ProductCategory extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:3002/productCategories', {
+        axios.post('http://localhost:3001/productCategories', {
             category: this.state.category
         }, this.state.config)
             .then((response) => {

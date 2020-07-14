@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Navigation from '../Navigation'
+import NavigationBar from '../NavigationBar'
 
 import { Container, CardColumns, Card, CardImg, CardBody, CardTitle, Button } from 'reactstrap'
 import { FaTrashAlt } from 'react-icons/fa';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export default class ViewProducts extends Component {
+export default class Mens extends Component {
     constructor(props) {
         super(props)
 
@@ -21,9 +22,8 @@ export default class ViewProducts extends Component {
             product: []
         }
     }
-
     componentDidMount() {
-        axios.get('http://localhost:3001/products', this.config)
+        axios.get('http://localhost:3001/products/fiteredProductWithGender/' + `Kids`, this.config)
             .then((response) => {
                 const data = response.data;
                 this.setState({ product: data });
@@ -31,51 +31,35 @@ export default class ViewProducts extends Component {
             }).catch(error => console.log(error.response));
 
     }
-
-    deleteProduct = (product_id) => {
-        axios.delete(`http://localhost:3001/products/${product_id}`, this.state.config)
-            .then(response => {
-                const filteredProduct = this.state.product.filter((i) => {
-                    return i._id !== product_id
-                })
-                this.setState({
-                    product: filteredProduct
-                })
-            }).catch((err) => console.log.response)
-    }
-
     render() {
         return (
             <div>
                 <Navigation></Navigation>
-
+                <NavigationBar></NavigationBar>
                 <Container>
-                    <h2 style={{ margin: '20px 0px 0px 0px' }}>Add Products</h2>
-                    <Link to={`/addproduct`}>
-                        <Button color="primary" style={{ margin: '-30px 60px 0px 60px', float: 'right' }}> Add more products</Button>
-                    </Link>
+                    <h2 style={{ margin: '20px 0px 0px 0px' }}>Kids Products</h2>
                     <hr></hr>
-
                     <CardColumns>
                         {this.state.product.map((allProducts =>
                             <Card>
                                 <CardImg className="cardimg" top width="70%" height="280px" src={`http://localhost:3001/uploads/${allProducts.image}`} alt="Card_image" />
                                 <CardBody>
                                     <CardTitle className="cardtitle">{allProducts.product_title}</CardTitle>
-                                    <CardTitle className="cardtitle">Rs: {allProducts.price}</CardTitle>
                                     <hr></hr>
 
-                                    <Link to={`/updateproduct/${allProducts._id}`}>
-                                        <Button color="primary" style={{ margin: '0px 60px 0px 60px' }}> Update</Button>
+                                    <Link to={`/viewProducts/${allProducts._id}`}>
+                                        <Button color="primary" > More Details</Button>
                                     </Link>
-                                    <Button color="danger" onClick={() => this.deleteProduct(allProducts._id)}>Delete <FaTrashAlt className="icons" ></FaTrashAlt> </Button>
+                                    <Link to={`/addToCart/${allProducts._id}`}>
+                                        <Button color="success" style={{ margin: '5px' }} > Add to Cart</Button>
+                                    </Link>
+
                                 </CardBody>
                             </Card>
                         ))}
                     </CardColumns>
 
                 </Container>
-
             </div>
         )
     }
