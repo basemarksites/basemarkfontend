@@ -5,12 +5,21 @@ import { Link } from 'react-router-dom'
 
 import Navigation from '../Navigation'
 import FileUploadButton from '../FileUploadButton'
+import Welcome from '../Welcome'
 
 
 
 export default class AddProducts extends Component {
     constructor(props) {
         super(props)
+        
+    
+            this.handleLogout = (e) => {
+                e.preventDefault();
+                localStorage.removeItem('token');
+                this.props.history.push('/login')
+            }
+        
 
         this.state = {
             image: '',
@@ -106,13 +115,18 @@ export default class AddProducts extends Component {
             large: !initialState.large,
         }));
     }
+<<<<<<< HEAD
 
 
 
+=======
+    
+>>>>>>> ashish-branch
     render() {
         return (
             <div>
-                <Navigation></Navigation>
+                
+                <Welcome></Welcome>
 
                 <Container>
                     <h2 style={{ margin: '20px 0px 0px 0px' }}>Add Product </h2>

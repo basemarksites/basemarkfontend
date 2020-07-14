@@ -6,6 +6,8 @@ import { Container, CardColumns, Card, CardImg, CardBody, CardTitle, Button, Lab
 import { FaTrashAlt } from 'react-icons/fa';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Welcome from '../Welcome';
+import LoggedinNavbar from '../LoggedinNavbar';
 
 export default class ViewProducts extends Component {
     constructor(props) {
@@ -32,13 +34,14 @@ export default class ViewProducts extends Component {
             }).catch(error => console.log(error.response));
 
     }
-
+    
 
     render() {
         return (
             <div>
-                <Navigation></Navigation>
-                <NavigationBar></NavigationBar>
+              
+               
+                <LoggedinNavbar></LoggedinNavbar>
                 <Container>
                     <h2 style={{ margin: '20px 0px 0px 0px' }}>All Products</h2>
                     <hr></hr>

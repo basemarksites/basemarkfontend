@@ -4,12 +4,22 @@ import NavigationBar from './NavigationBar'
 import { Button } from 'reactstrap'
 import Home from './Homepage'
 
+
 export default class Welcome extends Component {
-    handleLogout = (e) => {
+    constructor(props) {
+        super(props)
+
+        
+    
+        
+    }
+   handleLogout = (e) => {
         e.preventDefault();
         localStorage.removeItem('token');
         this.props.history.push('/login')
     }
+    
+    
 
     render() {
         return (
