@@ -7,7 +7,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export default class ViewProducts extends Component {
+export default class AllProducts extends Component {
     constructor(props) {
         super(props)
 
@@ -152,6 +152,9 @@ export default class ViewProducts extends Component {
                                         <hr></hr>
                                         <Link to={`/productDetails/${allProducts._id}`}>
                                             <Button color="primary" > More Details</Button>
+                                        </Link>
+                                        <Link to={`/addToCart/${allProducts._id}`}>
+                                            <Button color="success" style={{ margin: '5px' }} title="Login gar BSDK" disabled > Add to Cart</Button>
                                         </Link>
                                     </CardBody>
                                 </Card>

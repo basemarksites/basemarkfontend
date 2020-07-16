@@ -19,7 +19,12 @@ export default class Mens extends Component {
             description: '',
             price: '',
             image: '',
-            product: []
+            product: [],
+            user: {},
+            config: {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+            },
+            isLoggedIn: false
         }
     }
     componentDidMount() {
@@ -30,37 +35,85 @@ export default class Mens extends Component {
                 console.log("data fetch");
             }).catch(error => console.log(error.response));
 
+        axios.get('http://localhost:3001/users/myProfile', this.state.config)
+            .then((response) => {
+                console.log(response.data)
+                this.setState({
+                    user: response.data,
+                    isLoggedIn: true
+                })
+            })
+            .catch((err) => console.log(err.response));
+
     }
     render() {
-        return (
-            <div>
-                <Navigation></Navigation>
-                <NavigationBar></NavigationBar>
-                <Container>
-                    <h2 style={{ margin: '20px 0px 0px 0px' }}>Mens Products</h2>
-                    <hr></hr>
-                    <CardColumns>
-                        {this.state.product.map((allProducts =>
-                            <Card>
-                                <CardImg className="cardimg" top width="70%" height="280px" src={`http://localhost:3001/uploads/${allProducts.image}`} alt="Card_image" />
-                                <CardBody>
-                                    <CardTitle className="cardtitle">{allProducts.product_title}</CardTitle>
-                                    <hr></hr>
+        if (localStorage.getItem('token')) {
+            return (
+                <div>
+                    <Navigation></Navigation>
+                    <NavigationBar></NavigationBar>
+                    <Container>
+                        <h2 style={{ margin: '20px 0px 0px 0px' }}>Mens Products</h2>
+                        <hr></hr>
+                        <CardColumns>
+                            {this.state.product.map((allProducts =>
+                                <Card>
+                                    <CardImg className="cardimg" top width="70%" height="280px" src={`http://localhost:3001/uploads/${allProducts.image}`} alt="Card_image" />
+                                    <CardBody>
+                                        <CardTitle className="cardtitle">{allProducts.product_title}</CardTitle>
+                                        <CardTitle className="cardtitle">Rs: {allProducts.price}</CardTitle>
+                                        <CardTitle className="cardtitle">Stock: ( {allProducts.stock} )</CardTitle>
+                                        <hr></hr>
 
-                                    <Link to={`/viewProducts/${allProducts._id}`}>
-                                        <Button color="primary" > More Details</Button>
-                                    </Link>
-                                    <Link to={`/addToCart/${allProducts._id}`}>
-                                        <Button color="success" style={{ margin: '5px' }} > Add to Cart</Button>
-                                    </Link>
+                                        <Link to={`/viewProducts/${allProducts._id}`}>
+                                            <Button color="primary" > More Details</Button>
+                                        </Link>
+                                        <Link to={`/addToCart/${allProducts._id}`}>
+                                            <Button color="success" style={{ margin: '5px' }} > Add to Cart</Button>
+                                        </Link>
 
-                                </CardBody>
-                            </Card>
-                        ))}
-                    </CardColumns>
+                                    </CardBody>
+                                </Card>
+                            ))}
+                        </CardColumns>
 
-                </Container>
-            </div>
-        )
+                    </Container>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    <Navigation></Navigation>
+                    <NavigationBar></NavigationBar>
+                    <Container>
+                        <h2 style={{ margin: '20px 0px 0px 0px' }}>Mens Products</h2>
+                        <hr></hr>
+                        <CardColumns>
+                            {this.state.product.map((allProducts =>
+                                <Card>
+                                    <CardImg className="cardimg" top width="70%" height="280px" src={`http://localhost:3001/uploads/${allProducts.image}`} alt="Card_image" />
+                                    <CardBody>
+                                        <CardTitle className="cardtitle">{allProducts.product_title}</CardTitle>
+                                        <CardTitle className="cardtitle">Rs: {allProducts.price}</CardTitle>
+                                        <CardTitle className="cardtitle">Stock: ( {allProducts.stock} )</CardTitle>
+                                        <hr></hr>
+
+                                        <Link to={`/viewProducts/${allProducts._id}`}>
+                                            <Button color="primary" > More Details</Button>
+                                        </Link>
+                                        <Link to={`/addToCart/${allProducts._id}`}>
+                                            <Button color="success" style={{ margin: '5px' }} title="Login gar BSDK" disabled > Add to Cart</Button>
+                                        </Link>
+                                    </CardBody>
+                                </Card>
+                            ))}
+                        </CardColumns>
+
+                    </Container>
+                </div>
+            )
+        }
+
     }
 }
