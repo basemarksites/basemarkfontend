@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Navigation from './Navigation'
 import NavigationBar from './NavigationBar'
 import { Button } from 'reactstrap'
-import Home from './Homepage'
+import PictureWithSearchbar from './PictureWithSearchbar'
 
 
 export default class Welcome extends Component {
@@ -26,7 +26,7 @@ export default class Welcome extends Component {
             <div>
                 <Navigation></Navigation>
                 <NavigationBar></NavigationBar>
-                <Home></Home>
+                <PictureWithSearchbar></PictureWithSearchbar>
                 <Button color="primary" onClick={this.handleLogout}>
                     Logout
             </Button>

@@ -13,12 +13,14 @@ import Registration from './components/Registration';
 import Navigation from './components/Navigation';
 import NavigationBar from './components/NavigationBar';
 
+import NavAfterLogin from './components/NavAfterLogin';
+
 import Footerpage from './components/Footer';
 import ProductCategory from './components/admin/ProductCategory';
 import AddProducts from './components/admin/AddProducts';
 import ViewProducts from './components/admin/ViewProducts';
 import UpdateProduct from './components/admin/UpdateProduct';
-import Homepage from './components/Homepage';
+import PictureWithSearchbar from './components/PictureWithSearchbar';
 
 
 import MensProduct from './components/view-pages/Mens';
@@ -67,10 +69,15 @@ function App() {
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />
         <Route exact path='/navigationbar' component={NavigationBar} />
+        <Route exact path='/navafterlogin' component={NavAfterLogin} />
         <Route exact path='/footer' component={Footerpage} />
 
 
+
         <Route exact path='/home' component={Homepage} />
+
+        <Route exact path='/search' component={PictureWithSearchbar} />
+
 
 
         <PrivateRoute exact path= '/update' component={Update} />
