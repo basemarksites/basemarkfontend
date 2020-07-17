@@ -1,21 +1,15 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import {
     Navbar,
     NavbarBrand,
     Nav,
-    FormGroup, Input, FormText, Form,
-    NavbarText, Label, Dropdown, DropdownToggle, DropdownItem, DropdownMenu, UncontrolledDropdown, NavLink
+    NavbarText, Label, DropdownToggle, DropdownItem, DropdownMenu, UncontrolledDropdown, NavLink
 } from 'reactstrap';
 
-import { FaShoppingCart, FaUserCircle } from 'react-icons/fa'
-import { GrFavorite } from 'react-icons/gr'
-import { MdLocationOn } from 'react-icons/md'
+import { FaShoppingCart } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 import flag from './assets/nepal.png'
-
-
-import { Redirect, Link } from 'react-router-dom';
 
 
 

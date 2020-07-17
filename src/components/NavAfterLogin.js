@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import {
     Navbar,
     NavbarBrand,
     Nav,
-    FormGroup, Input, FormText, Form,
-    NavbarText, Label, Dropdown, DropdownToggle, DropdownItem, DropdownMenu, UncontrolledDropdown, NavLink,
-    Row, Col, Button
+    NavbarText, Label, DropdownToggle, DropdownItem, 
+    DropdownMenu, UncontrolledDropdown, NavLink, Button
 } from 'reactstrap';
 
 import { FaShoppingCart, FaUserCircle } from 'react-icons/fa'
+import {Link } from 'react-router-dom';
 
 import flag from './assets/nepal.png'
-
-
-import { Redirect, Link } from 'react-router-dom';
-
 
 
 export default class Navigation extends Component {
