@@ -53,6 +53,7 @@ export default class Login extends Component {
        
     }
     render() {
+
         
         if (this.state.role === 'admin'){
             return<Redirect to='/addproduct'/>
@@ -60,6 +61,11 @@ export default class Login extends Component {
             return<Redirect to='/allproducts'/>
 
           }
+
+        if (localStorage.getItem('token')) {
+            return (<Redirect to='/' />)
+        }
+
         return (
             <div >
                 <Navigation></Navigation>
