@@ -20,7 +20,7 @@ import ProductCategory from './components/admin/ProductCategory';
 import AddProducts from './components/admin/AddProducts';
 import ViewProducts from './components/admin/ViewProducts';
 import UpdateProduct from './components/admin/UpdateProduct';
-import Homepage from './components/Homepage';
+import PictureWithSearchbar from './components/PictureWithSearchbar';
 
 import MensProduct from './components/view-pages/Mens';
 import WomensProduct from './components/view-pages/WomensProduct';
@@ -69,7 +69,7 @@ function App() {
         <Route exact path='/navafterlogin' component={NavAfterLogin} />
         <Route exact path='/footer' component={Footerpage} />
 
-        <Route exact path='/home' component={Homepage} />
+        <Route exact path='/search' component={PictureWithSearchbar} />
 
 
 

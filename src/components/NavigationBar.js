@@ -30,9 +30,9 @@ export default class NavigationBar extends Component {
     render() {
         return (
             <div>
-                <Navbar color="light" expand='lg' id="navbar" style={{ height: '60px' }}>
+                <Navbar color="light" fixed expand='lg' id="navbar" style={{ height: '60px' }} >
                     <NavbarBrand href='/'>
-                        <h5 style={{ color: '#CA4040', fontWeight: 'inherit' }} className="ml-2">BASEMARK</h5>
+                        <h5 style={{ color: '#CA4040', fontWeight: 'inherit', fontSize:'25px'}} className="ml-2">BASEMARK</h5>
                     </NavbarBrand>
                     <NavbarToggler onClick={this.toggle} style={{ color: '#000' }} />
                     <Collapse isOpen={this.state.isOpen} navbar>
