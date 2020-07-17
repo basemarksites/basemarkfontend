@@ -13,6 +13,8 @@ import Registration from './components/Registration';
 import Navigation from './components/Navigation';
 import NavigationBar from './components/NavigationBar';
 
+import NavAfterLogin from './components/NavAfterLogin';
+
 import Footerpage from './components/Footer';
 import ProductCategory from './components/admin/ProductCategory';
 import AddProducts from './components/admin/AddProducts';
@@ -64,6 +66,7 @@ function App() {
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />
         <Route exact path='/navigationbar' component={NavigationBar} />
+        <Route exact path='/navafterlogin' component={NavAfterLogin} />
         <Route exact path='/footer' component={Footerpage} />
 
         <Route exact path='/home' component={Homepage} />

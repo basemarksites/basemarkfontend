@@ -22,7 +22,7 @@ export default class ViewProductDetails extends Component {
         super(props)
 
         this.state = {
-            prodDetails: [],
+            productDetails: [],
             modal: false
         }
         this.toggle = this.toggle.bind(this);
@@ -58,7 +58,7 @@ export default class ViewProductDetails extends Component {
 
             <div>
                 <Navigation></Navigation>
-                <Container fluid="md">
+                  <Container fluid="md">
                     <Row>
                         <Col xs="4">
                             <img width='350px' height='380px' src={`http://localhost:3001/uploads/${this.state.productDetails.image}`} alt="product_img"></img>

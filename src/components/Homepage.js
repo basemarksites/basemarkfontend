@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Row, Col, Jumbotron, Input, InputGroupAddon, InputGroup, Label } from 'reactstrap'
+import { Button, Row, Col, Jumbotron, Input, InputGroupAddon, InputGroup, Label, Card, CardTitle, CardText, Container } from 'reactstrap'
 import '../Homepage.css'
 
 import menscloth from '../components/assets/fashion.png'
@@ -31,16 +31,7 @@ export default class Homepage extends Component {
                 <Jumbotron className="imagebutton">
                     <Row>
 
-                    <Col sm="16" md={{ size: 8, offset: 2 }}>
-                        <Label className="heading">A unique store at your door</Label>
-                      
-                        <InputGroup id="searchbar">
-                            <Input />
-                            <InputGroupAddon addonType="append">
-                                <Button className="search" color="success"> Find best item</Button>
-                            </InputGroupAddon>
-                        </InputGroup>
-                    </Col>
+
 
                         <Col sm="12" md={{ size: 8, offset: 2 }}>
                             <Label className="heading">A unique store at your door</Label>
@@ -57,24 +48,50 @@ export default class Homepage extends Component {
                     </Row>
                 </Jumbotron>
 
-                <Jumbotron style={{ backgroundColor: '#fff' }}>
+                <Container style={{ backgroundColor: '#fff' }}  >
                     <Row>
                         <Col sm="12" sm={{ size: 6, offset: 5 }} >
                             <h5> What would you like?</h5>
                         </Col>
 
-                        <Col md="12" md={{ size: 7, offset: 3 }}>
-                            <img src={menscloth} id="imgmens" data-toggle="tooltip" title="Clothing" alt="category" />
-                            <img src={womencloth} id="imgwomen" data-toggle="tooltip" title="Clothing" alt="category" />
-                            <img src={babycloth} id="imgbaby" data-toggle="tooltip" title="Clothing" alt="category" />
-                            <img src={pants} id="imgpants" data-toggle="tooltip" title="Clothing" alt="category" />
-                            <img src={skirt} id="imgskirt" data-toggle="tooltip" title="Clothing" alt="category" />
-
-
-                        </Col>
                     </Row>
+
+
+                    <Container className="themed-container" fluid="md">
+                        <Row>
+                            <Col sm="2" xs="4"></Col>
+                           
+                            <Col xs="6" sm="3">
+                                <Card body>
+                                    <CardTitle>Special Title Treatment</CardTitle>
+                                    <CardText className="align-center">Clothes</CardText>
+                                    <Button>Clothes</Button>
+                                </Card>
+                            </Col>
+
+
+                            <Col xs="6" sm="3">
+                                <Card body>
+                                    <CardTitle>Special Title Treatment</CardTitle>
+                                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                                    <Button>Shoes</Button>
+                                </Card>
+                            </Col>
+
+                            <Col sm="3">
+                                <Card body>
+                                    <CardTitle>Special Title Treatment</CardTitle>
+                                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                                    <Button>Accesories</Button>
+                                </Card>
+                            </Col>
+                           
+
+                        </Row>
+                    </Container>
+
                     <hr></hr>
-                </Jumbotron>
+                </Container>
 
 
             </div>

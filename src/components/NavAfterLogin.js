@@ -5,12 +5,11 @@ import {
     NavbarBrand,
     Nav,
     FormGroup, Input, FormText, Form,
-    NavbarText, Label, Dropdown, DropdownToggle, DropdownItem, DropdownMenu, UncontrolledDropdown, NavLink
+    NavbarText, Label, Dropdown, DropdownToggle, DropdownItem, DropdownMenu, UncontrolledDropdown, NavLink,
+    Row, Col, Button
 } from 'reactstrap';
 
 import { FaShoppingCart, FaUserCircle } from 'react-icons/fa'
-import { GrFavorite } from 'react-icons/gr'
-import { MdLocationOn } from 'react-icons/md'
 
 import flag from './assets/nepal.png'
 
@@ -57,8 +56,24 @@ export default class Navigation extends Component {
                 </NavbarBrand>
 
                 <Nav className="mr-auto" navbar></Nav>
-                <NavLink style={{ color: '#8c8c8c' }} href="/login">
-                    Join/Login to Basemark
+                <NavLink style={{ color: '#8c8c8c' }}>
+                    <UncontrolledDropdown>
+                        <DropdownToggle nav inNavBar>
+                            <Link style={{ color: '#8c8c8c', textDecoration: 'none' }}><FaUserCircle></FaUserCircle>  My account</Link>
+                        </DropdownToggle>
+                        <DropdownMenu down>
+                            <DropdownItem>
+
+                                <DropdownItem><Link to="/profile" style={{ textDecoration: 'none', color: '#000' }}>Profile</Link></DropdownItem>
+                                <DropdownItem><Link to="/order" style={{ textDecoration: 'none', color: '#000' }}>Order status</Link></DropdownItem>
+                            </DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem>
+                                <Button size="md" block onClick={this.handleLogout} style={{ backgroundColor: '#000' }}>Logout</Button>
+                            </DropdownItem>
+                        </DropdownMenu>
+                    </UncontrolledDropdown>
+
 
                 </NavLink>
 
