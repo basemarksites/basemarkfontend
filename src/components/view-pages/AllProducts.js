@@ -4,7 +4,7 @@ import NavigationBar from '../NavigationBar'
 
 import { Container, CardColumns, Card, CardImg, CardBody, CardTitle, Button, Label } from 'reactstrap'
 import { FaTrashAlt } from 'react-icons/fa';
-import axios from 'axios';
+import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 export default class AllProducts extends Component {
@@ -29,14 +29,14 @@ export default class AllProducts extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/products', this.config)
+        Axios.get('http://localhost:3001/products', this.config)
             .then((response) => {
                 const data = response.data;
                 this.setState({ product: data });
                 console.log("data fetch");
             }).catch(error => console.log(error.response));
 
-        axios.get('http://localhost:3001/users/myProfile', this.state.config)
+        Axios.get('http://localhost:3001/users/myProfile', this.state.config)
             .then((response) => {
                 console.log(response.data)
                 this.setState({
@@ -48,6 +48,19 @@ export default class AllProducts extends Component {
 
     }
 
+    addToCart = (productId) => {
+
+        Axios.post(`http://localhost:3001/cart/`,
+            {
+                product: productId,
+                customer: this.state.user._id,
+            }, this.state.config)
+            .then((response) => {
+                alert("Added to your cart.")
+                console.log(response);
+
+            }).catch((err) => console.log(err.response));
+    }
 
     render() {
         if (localStorage.getItem('token')) {
@@ -95,9 +108,11 @@ export default class AllProducts extends Component {
                                         <Link to={`/productDetails/${allProducts._id}`}>
                                             <Button color="primary" > More Details</Button>
                                         </Link>
-                                        <Link to={`/addToCart/${allProducts._id}`}>
-                                            <Button color="danger" style={{ margin: '5px' }} > Add to Cart</Button>
+                                        <Link to={'/allProducts'}>
+                                            <Button color="danger" style={{ margin: '5px' }} onClick={() => this.addToCart(allProducts._id)}> Add to Cart</Button>
+
                                         </Link>
+
                                     </CardBody>
                                 </Card>
                             ))}

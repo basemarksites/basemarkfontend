@@ -33,6 +33,8 @@ import Shoes from './components/view-pages/Shoes';
 import ProductDetails from './components/view-pages/ProductDetail'
 import SearchedProducts from './components/view-pages/SearchProducts'
 
+import Cart from './components/orders/Cart'
+
 function App() {
   return (
     <BrowserRouter>
@@ -58,6 +60,9 @@ function App() {
 
         <Route exact path='/productDetails/:id' component={ProductDetails}></Route>
         <Route exact path='/searchProducts/:id' component={SearchedProducts}></Route>
+
+        <Route exact path='/Cart' component={Cart}></Route>
+        <Route exact path='/Cart/:id' component={Cart}></Route>
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />
