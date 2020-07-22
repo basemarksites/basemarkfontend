@@ -15,9 +15,15 @@ export default class cart extends Component {
             item: [],
             user: {},
             qty: '',
-            total: '',
+            product: {},
+            res: {},
+            totalPrice: '',
+            phone: '',
+            destination: '',
+            order_date: new Date().toLocaleString(),
+            deliver_date: '',
             //fullName: '',
-            product_title: '',
+            //product_title: '',
             isOrder: false,
             config: {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -63,6 +69,13 @@ export default class cart extends Component {
         })
     }
 
+    // handleChange = (e) => {
+    //     this.setState({
+    //         product: { ...this.state.product, [e.target.name]: e.target.value },
+
+    //     })
+    // }
+
     removeCartItem = (cartId) => {
         Axios.delete(`http://localhost:3001/cart/${cartId}`, this.state.config)
             .then((response) => {
@@ -75,21 +88,29 @@ export default class cart extends Component {
                 })
             }).catch((err) => console.log(err.response));
     }
-    prepareOrder = (cartId) => {
 
-        Axios.get(`http://localhost:3001/cart/${cartId}`
+    // prepareOrder = (cartId) => {
+
+    //     Axios.get(`http://localhost:3001/cart/${cartId}`
+    //         , this.state.config)
+
+    //         .then((response) => {
+    //             const { item, product: { _id, product_title, price } } = response.data;
+    //             this.setState({ item: { item, product_title, _id, price }, isOrder: !this.state.isOrder });
+    //             //this.setState({ res: response, isOrder: !this.state.isOrder });
+    //             console.log(response);
+    //         }).catch((err) => console.log(err.response));
+    // }
+    prepareOrder = (productId) => {
+
+        Axios.get(`http://localhost:3001/products/${productId}`
             , this.state.config)
-            // .then((response) => {
-            //     console.log(response.data)
-            //     this.setState({
-            //         item: response.data,
-            //         isOrder: !this.state.isOrder
-            //     });
-            // })
+
             .then((response) => {
                 const data = response.data;
                 this.setState({ item: data, isOrder: !this.state.isOrder });
                 console.log(response.data);
+                console.log(response);
             }).catch((err) => console.log(err.response));
     }
 
@@ -131,7 +152,7 @@ export default class cart extends Component {
                                             </td>
                                             <td><button type="button" class="btn btn-danger" onClick={() => this.removeCartItem(cart._id)}> <FaTrashAlt className="icons" ></FaTrashAlt> Remove</button></td>
                                             <td>
-                                                <Button color='warning' block onClick={() => this.prepareOrder(cart._id)}>Order Now</Button>
+                                                <Button color='warning' block onClick={() => this.prepareOrder(cart.product._id)}>Order Now</Button>
                                             </td>
                                         </tr>
                                     )
@@ -148,27 +169,48 @@ export default class cart extends Component {
                         </ModalHeader>
                         <ModalBody>
                             <FormGroup>
+                                <label>Product</label>
                                 <Input name='product' type='text'
-                                    value={this.state.item.product} disabled></Input>
+                                    value={this.state.item.product_title} disabled></Input>
                             </FormGroup>
                             <FormGroup>
-                                <Input name='customer' type='text'
-                                    value={this.state.item.customer} disabled></Input>
+                                <label>Product Id</label>
+                                <Input name='product' type='text'
+                                    value={this.state.item._id} disabled></Input>
                             </FormGroup>
                             <FormGroup>
+                                <label>Customer's Name</label>
+                                <Input name='product' type='text'
+                                    value={this.state.user.fullName} disabled></Input>
+                            </FormGroup>
+                            <FormGroup>
+                                <label>Quantity</label>
                                 <Input name='qty' type='number'
-                                    placeholder="Select quantity..."></Input>
+                                    value={this.state.qty} placeholder="Select quantity..."></Input>
                             </FormGroup>
                             <FormGroup>
+                                <label>Total Price</label>
                                 <Input name='totalPrice' type='number'
-                                    disabled placeholder="Your total price is..."></Input>
+                                    //value={this.state.totalPrice}
+                                    value={this.state.totalPrice}
+                                    placeholder="Your total price is..."></Input>
                             </FormGroup>
                             <FormGroup>
+                                <label>Delivery Location</label>
                                 <Input name='destination' type='text'
-                                    placeholder="Delivery Location..."></Input>
+                                    value={this.state.destination} placeholder="Delivery Location..." onChange={this.handleChange}></Input>
                             </FormGroup>
-
-
+                            <FormGroup>
+                                <label>Contact Number</label>
+                                <Input name='phone' type='phone'
+                                    value={this.state.phone} placeholder="Contact Number..." onChange={this.handleChange}>
+                                </Input>
+                            </FormGroup>
+                            <FormGroup>
+                                <label>Order Date</label>
+                                <Input name='order_date' type='text'
+                                    value={this.state.order_date} placeholder="Today.." disabled></Input>
+                            </FormGroup>
                         </ModalBody>
 
                         <ModalFooter>
