@@ -12,7 +12,11 @@ export default class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            isLoggedIn: false
+            isLoggedIn: false,
+            role: '',
+            config: {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+            }
         }
     }
 
@@ -27,16 +31,39 @@ export default class Login extends Component {
             .then((response) => {
                 console.log(response.data)
                 localStorage.setItem('token', response.data.token)
+
+
+
+
                 this.setState({
-                    isLoggedIn: true
+                    role: response.data.role
+
+
                 })
+
+                console.log(this.state.role)
+
             }).catch((err) => console.log(err.response))
-        this.setState({ email: '', password: '' })
+
+
+
+
+
+
+
     }
     render() {
+        if (this.state.role === 'admin') {
+            return <Redirect to='/addproduct' />
+        } else if (this.state.role === 'customer') {
+            return <Redirect to='/allproducts' />
+
+        }
+
         if (localStorage.getItem('token')) {
             return (<Redirect to='/' />)
         }
+
         return (
             <div >
                 <Navigation></Navigation>

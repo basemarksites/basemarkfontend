@@ -46,6 +46,21 @@ export default class Accessories extends Component {
             .catch((err) => console.log(err.response));
 
     }
+
+    addToCart = (productId) => {
+
+        axios.post(`http://localhost:3001/cart/`,
+            {
+                product: productId,
+                customer: this.state.user._id,
+            }, this.state.config)
+            .then((response) => {
+                alert("Added to your cart.")
+                console.log(response);
+
+            }).catch((err) => console.log(err.response));
+    }
+
     render() {
         if (localStorage.getItem('token')) {
             return (
@@ -65,11 +80,12 @@ export default class Accessories extends Component {
                                         <CardTitle className="cardtitle">Stock: ( {allProducts.stock} )</CardTitle>
                                         <hr></hr>
 
-                                        <Link to={`/viewProducts/${allProducts._id}`}>
+                                        <Link to={`/productDetails/${allProducts._id}`}>
                                             <Button color="primary" > More Details</Button>
                                         </Link>
-                                        <Link to={`/addToCart/${allProducts._id}`}>
-                                            <Button color="success" style={{ margin: '5px' }} > Add to Cart</Button>
+                                        <Link to={'/accessories'}>
+                                            <Button color="danger" style={{ margin: '5px' }} onClick={() => this.addToCart(allProducts._id)}> Add to Cart</Button>
+
                                         </Link>
 
                                     </CardBody>
@@ -99,11 +115,11 @@ export default class Accessories extends Component {
                                         <CardTitle className="cardtitle">Stock: ( {allProducts.stock} )</CardTitle>
                                         <hr></hr>
 
-                                        <Link to={`/viewProducts/${allProducts._id}`}>
+                                        <Link to={`/productDetails/${allProducts._id}`}>
                                             <Button color="primary" > More Details</Button>
                                         </Link>
-                                        <Link to={`/addToCart/${allProducts._id}`}>
-                                            <Button color="success" style={{ margin: '5px' }} title="Login gar BSDK" disabled > Add to Cart</Button>
+                                        <Link to={'/accessories'}>
+                                            <Button color="danger" style={{ margin: '5px' }} title="Please login first" disabled > Add to Cart</Button>
                                         </Link>
                                     </CardBody>
                                 </Card>

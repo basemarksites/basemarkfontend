@@ -7,6 +7,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
+
 export default class AllProducts extends Component {
     constructor(props) {
         super(props)
@@ -61,6 +62,8 @@ export default class AllProducts extends Component {
 
             }).catch((err) => console.log(err.response));
     }
+
+
 
     render() {
         if (localStorage.getItem('token')) {
@@ -168,8 +171,8 @@ export default class AllProducts extends Component {
                                         <Link to={`/productDetails/${allProducts._id}`}>
                                             <Button color="primary" > More Details</Button>
                                         </Link>
-                                        <Link to={`/addToCart/${allProducts._id}`}>
-                                            <Button color="success" style={{ margin: '5px' }} title="Login gar BSDK" disabled > Add to Cart</Button>
+                                        <Link to={'/allProducts'}>
+                                            <Button color="danger" style={{ margin: '5px' }} title="Please login first" disabled > Add to Cart</Button>
                                         </Link>
                                     </CardBody>
                                 </Card>

@@ -13,12 +13,15 @@ import Registration from './components/Registration';
 import Navigation from './components/Navigation';
 import NavigationBar from './components/NavigationBar';
 
+import NavAfterLogin from './components/NavAfterLogin';
+
 import Footerpage from './components/Footer';
 import ProductCategory from './components/admin/ProductCategory';
 import AddProducts from './components/admin/AddProducts';
 import ViewProducts from './components/admin/ViewProducts';
 import UpdateProduct from './components/admin/UpdateProduct';
-import Homepage from './components/Homepage';
+import PictureWithSearchbar from './components/PictureWithSearchbar';
+
 
 import MensProduct from './components/view-pages/Mens';
 import WomensProduct from './components/view-pages/WomensProduct';
@@ -30,10 +33,15 @@ import Accessories from './components/view-pages/Accessories';
 import Clothes from './components/view-pages/Clothes';
 import Shoes from './components/view-pages/Shoes';
 
+import ViewProductDetails from './components/view-pages/ViewProductDetails';
+
 import ProductDetails from './components/view-pages/ProductDetail'
 import SearchedProducts from './components/view-pages/SearchProducts'
 
+
 import Cart from './components/orders/Cart'
+
+import Update from './components/ProfileUpdate';
 
 function App() {
   return (
@@ -44,7 +52,7 @@ function App() {
         <Route exact path='/register' component={Registration} />
 
         <Route exact path='/productcategory' component={ProductCategory} />
-        <Route exact path='/addproduct' component={AddProducts} />
+        <PrivateRoute path='/addproduct' component={AddProducts} />
         <Route exact path='/viewproducts' component={ViewProducts} />
         <Route exact path='/updateproduct/:id' component={UpdateProduct} />
 
@@ -52,24 +60,33 @@ function App() {
         <Route exact path='/womensProducts' component={WomensProduct} />
         <Route exact path='/kidsProducts' component={KidsProduct} />
 
-        <Route exact path='/allProducts' component={AllProduct} />
+        <Route path='/allProducts' component={AllProduct} />
 
         <Route exact path='/accessories' component={Accessories} />
         <Route exact path='/clothes' component={Clothes} />
         <Route exact path='/shoes' component={Shoes} />
 
-        <Route exact path='/productDetails/:id' component={ProductDetails}></Route>
+        <Route exact path='/productDetails/:id' component={ViewProductDetails}></Route>
         <Route exact path='/searchProducts/:id' component={SearchedProducts}></Route>
 
-        <Route exact path='/Cart' component={Cart}></Route>
-        <Route exact path='/Cart/:id' component={Cart}></Route>
+        <PrivateRoute exact path='/Cart' component={Cart}></PrivateRoute>
+        <PrivateRoute exact path='/Cart/:id' component={Cart}></PrivateRoute>
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />
         <Route exact path='/navigationbar' component={NavigationBar} />
+        <Route exact path='/navafterlogin' component={NavAfterLogin} />
         <Route exact path='/footer' component={Footerpage} />
 
-        <Route exact path='/home' component={Homepage} />
+
+
+        {/* <Route exact path='/home' component={Homepage} /> */}
+
+        <Route exact path='/search' component={PictureWithSearchbar} />
+
+
+
+        <PrivateRoute exact path='/update' component={Update} />
 
 
 
