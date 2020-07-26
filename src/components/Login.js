@@ -54,7 +54,7 @@ export default class Login extends Component {
     }
     render() {
         if (this.state.role === 'admin') {
-            return <Redirect to='/addproduct' />
+            return <Redirect to='/dashboard' />
         } else if (this.state.role === 'customer') {
             return <Redirect to='/allproducts' />
 
