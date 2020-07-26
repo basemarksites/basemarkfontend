@@ -67,3 +67,36 @@
   padding: 30px;
   box-shadow: 2px 0px 31px #efefef;
 }
+
+/* Dashboard css */
+@import url('https://fonts.googleapis.com/css?family=Rancho&display=swap');
+
+.dashboard_container{
+  background-color: #fafafa !important;
+}
+
+nav ul a .iconP{
+  margin: 0 5px 0 0px;
+}
+
+.container-fluid-nav {
+  display: flex;
+  justify-content: space-around;
+}
+.img-Logo{
+  width: 50px;
+}
+.dashtext{
+  color: #FFC900 !important;
+  font-family: 'Rancho', cursive;
+  font-size: 28px !important;
+  /* margin-left: -20px;
+  margin-right: 50px; */
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.dashboard_container img{
+  width: 250px;
+  height: 250px;
+}

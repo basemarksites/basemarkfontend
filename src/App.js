@@ -43,6 +43,9 @@ import Cart from './components/orders/Cart'
 
 import Update from './components/ProfileUpdate';
 
+import Dashboard from './components/admin/Dashboard';
+import NewItems from './components/admin/NewItems';
+
 function App() {
   return (
     <BrowserRouter>
@@ -71,6 +74,9 @@ function App() {
 
         <PrivateRoute exact path='/Cart' component={Cart}></PrivateRoute>
         <PrivateRoute exact path='/Cart/:id' component={Cart}></PrivateRoute>
+
+        <Route exact path='/dashboard' component={Dashboard} />
+        <Route exact path='/newItems' component={NewItems} />
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />
