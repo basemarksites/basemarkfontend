@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import NoMatch from './components/NoMatch';
-import PrivateRoute from './components/PrivateRoute';
+
 
 import Welcome from './components/Welcome';
 import Login from './components/Login';
@@ -45,6 +45,7 @@ import Update from './components/ProfileUpdate';
 
 import Dashboard from './components/admin/Dashboard';
 import NewItems from './components/admin/NewItems';
+import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
   return (
@@ -75,7 +76,7 @@ function App() {
         <PrivateRoute exact path='/Cart' component={Cart}></PrivateRoute>
         <PrivateRoute exact path='/Cart/:id' component={Cart}></PrivateRoute>
 
-        <Route exact path='/dashboard' component={Dashboard} />
+        <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <Route exact path='/newItems' component={NewItems} />
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />

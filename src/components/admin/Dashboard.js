@@ -1,13 +1,32 @@
 import React, { Component } from 'react'
-import { Container, Row } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Container, Row, Button } from 'reactstrap'
+import { Link , Redirect} from 'react-router-dom'
 
 export default class Dashboard extends Component {
+
+    handleLogout = () => {
+            
+        localStorage.removeItem('token');
+        localStorage.clear();
+        if(localStorage.getItem('token') == null){
+            this.props.history.push('/login');
+
+        }
+        
+      }
     render() {
+           
+        
         return (
             <div className="dashboard_container">
-
-                <h6 className="mb-3 mt-3 text-muted text-center"> Admin Dashboard </h6>
+       
+                
+                <div className="bg-info clearfix" style={{ padding: '.5rem' }}>
+                <h6 className="text-left"> Admin Dashboard </h6>
+      
+               <button className="btn btn-warning float-right" onClick={this.handleLogout}>Logout</button>
+    </div>
+                
 
                 <Container className="dashboard_btn_container">
                     <Row>
@@ -42,5 +61,6 @@ export default class Dashboard extends Component {
                 </Container>
             </div>
         )
-    }
+    
+}
 }
