@@ -5,11 +5,11 @@ import { Button } from 'reactstrap'
 import PictureWithSearchbar from './PictureWithSearchbar'
 
 export default class Welcome extends Component {
-    handleLogout = (e) => {
-        e.preventDefault();
-        localStorage.removeItem('token');
-        this.props.history.push('/login')
-    }
+    // handleLogout = (e) => {
+    //     e.preventDefault();
+    //     localStorage.removeItem('token');
+    //     this.props.history.push('/login')
+    // }
 
     render() {
         return (
@@ -17,9 +17,9 @@ export default class Welcome extends Component {
                 <Navigation></Navigation>
                 <NavigationBar></NavigationBar>
                 <PictureWithSearchbar></PictureWithSearchbar>
-                <Button color="primary" onClick={this.handleLogout}>
+                {/* <Button color="primary" onClick={this.handleLogout}>
                     Logout
-            </Button>
+            </Button> */}
             </div>
         )
     }

@@ -3,12 +3,12 @@ import {
     Navbar,
     NavbarBrand,
     Nav,
-    NavbarText, Label, DropdownToggle, DropdownItem, 
+    NavbarText, Label, DropdownToggle, DropdownItem,
     DropdownMenu, UncontrolledDropdown, NavLink, Button
 } from 'reactstrap';
 
 import { FaShoppingCart, FaUserCircle } from 'react-icons/fa'
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import flag from './assets/nepal.png'
 
@@ -16,14 +16,31 @@ import flag from './assets/nepal.png'
 export default class Navigation extends Component {
     constructor(props) {
         super(props);
+        
 
         this.toggle = this.toggle.bind(this);
         this.onMouseEnter = this.onMouseEnter.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
         this.state = {
-            dropdownOpen: false
+            dropdownOpen: false,
+            user: {},
+            name: '',
+            config: {
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
+            }
+
+
         };
     }
+
+
+    handleLogout = (e) => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        
+    }
+
+
 
     toggle() {
         this.setState(prevState => ({
@@ -54,7 +71,7 @@ export default class Navigation extends Component {
                 <NavLink style={{ color: '#8c8c8c' }}>
                     <UncontrolledDropdown>
                         <DropdownToggle nav inNavBar>
-                            <Link style={{ color: '#8c8c8c', textDecoration: 'none' }}><FaUserCircle></FaUserCircle>  My account</Link>
+                            <Link style={{ color: '#8c8c8c', textDecoration: 'none' }}><FaUserCircle></FaUserCircle>  My account {this.state.user.username}</Link>
                         </DropdownToggle>
                         <DropdownMenu down>
                             <DropdownItem>

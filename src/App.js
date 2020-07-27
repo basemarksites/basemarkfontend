@@ -35,6 +35,10 @@ import ViewProductDetails from './components/view-pages/ViewProductDetails';
 
 import ProductDetails from './components/view-pages/ProductDetail'
 import SearchedProducts from './components/view-pages/SearchProducts'
+import SigninAndSignup from './components/SigninAndSignup';
+
+import Home from './components/Home';
+
 
 function App() {
   return (
@@ -70,6 +74,10 @@ function App() {
         <Route exact path='/footer' component={Footerpage} />
 
         <Route exact path='/search' component={PictureWithSearchbar} />
+
+        <Route exact path='/signin' component={SigninAndSignup} />
+
+        <PrivateRoute path='/home' component={Home} />
 
 
 
