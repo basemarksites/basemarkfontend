@@ -10,7 +10,7 @@
     align-items: center;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
-    height: 150vh;
+    height: 120vh;
     margin: auto;
     text-align: center;
     background-color: #fff;
@@ -242,10 +242,10 @@ button.ghost {
     transition: transform 0.6s ease-in-out;
 }
 
-/* 
+
 .overlay-left {
     transform: translateX();
-} */
+}
 
 .signin-container.right-panel-active .overlay-left {
     transform: translateX(0);

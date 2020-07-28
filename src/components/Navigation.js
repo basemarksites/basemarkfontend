@@ -51,7 +51,7 @@ export default class Navigation extends Component {
                 </NavbarBrand>
 
                 <Nav className="mr-auto" navbar></Nav>
-                <NavLink style={{ color: '#8c8c8c' }} href="/login">
+                <NavLink style={{ color: '#8c8c8c' }} href="/signin">
                     Join/Login to Basemark
 
                 </NavLink>

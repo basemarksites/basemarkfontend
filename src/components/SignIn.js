@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-import './styleFiles/signinAndsignup.css'
+import './styleFiles/signin.css'
 
 
-import Navigation from '../components/Navigation'
-import NavigationBar from '../components/NavigationBar'
+import Navigation from './Navigation'
+import NavigationBar from './NavigationBar'
 
 import { FaFacebookSquare, FaInstagram, FaGooglePlus, FaYoutube } from 'react-icons/fa';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { Link, Redirect } from 'react-router-dom'
+import Footer from './Footer';
 
 
 
@@ -26,7 +27,6 @@ export default class SigninAndSignup extends Component {
             password: '',
             cpassword: '',
             username: '',
-            isRegistered: false,
             isLoggedIn: false
 
 
@@ -34,37 +34,12 @@ export default class SigninAndSignup extends Component {
         }
     }
 
-
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
-    handleSignUpSubmit = (e) => {
-        e.preventDefault();
-
-        axios.post('http://localhost:3001/users/signup', this.state)
-            .then((response) => {
-                localStorage.setItem('token', response.data.token)
-                this.setState({
-                    fullName: '',
-                    phone: '',
-                    address: '',
-                    email: '',
-                    password: '',
-                    cpassword: '',
-                    username: '',
-                    isRegistered: true
-                })
-            })
-    }
 
     handleSignInSubmit = (e) => {
         e.preventDefault();
@@ -82,36 +57,22 @@ export default class SigninAndSignup extends Component {
 
 
 
-
-
-    // clickSignInButton = (e) => {
-    //     const container=this.state;
-    //     container.classList.add("right-panel-active");
-
-    // }
-
-    // clickSignUpButton = (e) => {
-    //     const container=this.state;
-    //     container.classList.remove("right-panel-active");
-
-    // }
-
     render() {
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
+        // const signUpButton = document.getElementById('signUp');
+        // const signInButton = document.getElementById('signIn');
+        // const container = document.getElementById('container');
 
-        if (signUpButton) {
-            signUpButton.addEventListener('click', () => {
-                container.classList.add("right-panel-active");
-            })
-        }
+        // if (signUpButton) {
+        //     signUpButton.addEventListener('click', () => {
+        //         container.classList.add("right-panel-active");
+        //     })
+        // }
 
-        if (signInButton) {
-            signInButton.addEventListener('click', () => {
-                container.classList.remove("right-panel-active");
-            })
-        }
+        // if (signInButton) {
+        //     signInButton.addEventListener('click', () => {
+        //         container.classList.remove("right-panel-active");
+        //     })
+        // }
 
         if (localStorage.getItem('token')) {
             return <Redirect to='/home' />
@@ -120,17 +81,6 @@ export default class SigninAndSignup extends Component {
         if (this.state.isLoggedIn) {
             return <Redirect to='/home' />
         }
-
-
-        // signUpButton.addEventListener('click', () => {
-        //     container.classList.add("right-panel-active");
-        // });
-
-
-
-        // signInButton.addEventListener('click', () => {
-        //     container.classList.remove("");
-        // });
 
         return (
             <div>
@@ -188,9 +138,7 @@ export default class SigninAndSignup extends Component {
                             <form action="#" className="sigin-form">
                                 <h3 className="heading-signin">Sign in</h3>
                                 <div class="social-container">
-                                    {/* <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a> */}
+
 
                                     <a><FaFacebookSquare className="icons" className="social-media"></FaFacebookSquare></a>
                                     <a><FaInstagram className="icons" className="social-media"></FaInstagram></a>
@@ -214,29 +162,29 @@ export default class SigninAndSignup extends Component {
                         </div>
                         <div class="overlay-container">
                             <div class="overlay">
-                                <div class="overlay-panel overlay-left">
-                                    <h1>Welcome Back!</h1>
-                                    <p>To keep connected with us please login with your personal info</p>
-                                    <button class="ghost" id="signIn" onClick={this.clickSignInButton}>Sign In</button>
-                                </div>
+
                                 <div class="overlay-panel overlay-right">
                                     <h1>Hello, Friend!</h1>
-                                    <p>Enter your personal details and start journey with us</p>
-                                    <button class="ghost" id="signUp" >Sign Up</button>
+                                    <p>Don't have an account?</p>
+                                    <p style={{ marginTop: '-14px' }}>No worries, enter your details and register here !</p>
+
+                                    <Link to="/signup"> <button class="ghost" id="signUp" >Sign Up</button></Link>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* <footer>
-                    <p>
-                        Created with <i class="fa fa-heart"></i> by
+                        <p>
+                            Created with <i class="fa fa-heart"></i> by
 		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>
 		- Read how I created this and how you can join the challenge
 		<a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
 	</p>
-                </footer> */}
+                    </footer> */}
                 </div>
+
+                <Footer></Footer>
             </div>
         )
     }

@@ -7,9 +7,9 @@ import NoMatch from './components/NoMatch';
 import PrivateRoute from './components/PrivateRoute';
 
 import Welcome from './components/Welcome';
-import Login from './components/Login';
+import SignIn from './components/SignIn';
 import RecoverPassword from './components/RecoverPassword';
-import Registration from './components/Registration';
+import SignUp from './components/SignUp';
 import Navigation from './components/Navigation';
 import NavigationBar from './components/NavigationBar';
 
@@ -35,7 +35,6 @@ import ViewProductDetails from './components/view-pages/ViewProductDetails';
 
 import ProductDetails from './components/view-pages/ProductDetail'
 import SearchedProducts from './components/view-pages/SearchProducts'
-import SigninAndSignup from './components/SigninAndSignup';
 
 import Home from './components/Home';
 
@@ -45,8 +44,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Welcome} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/register' component={Registration} />
+        <Route exact path='/signin' component={SignIn} />
+        <Route exact path='/signup' component={SignUp} />
 
         <Route exact path='/productcategory' component={ProductCategory} />
         <Route exact path='/addproduct' component={AddProducts} />
@@ -75,7 +74,6 @@ function App() {
 
         <Route exact path='/search' component={PictureWithSearchbar} />
 
-        <Route exact path='/signin' component={SigninAndSignup} />
 
         <PrivateRoute path='/home' component={Home} />
 
