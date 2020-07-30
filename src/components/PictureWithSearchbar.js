@@ -5,8 +5,8 @@ import '../Homepage.css'
 import menscloth from '../components/assets/fashion.png'
 import womencloth from '../components/assets/dress.png'
 import babycloth from '../components/assets/baby.png'
-import pants from '../components/assets/pants.png'
-import skirt from '../components/assets/skirt.png'
+import accessories from '../components/assets/accessories.jpg'
+import shoes from '../components/assets/shoes.jpg'
 import coverphoto from '../components/assets/cover.jpg'
 import { Link } from 'react-router-dom';
 
@@ -50,13 +50,13 @@ export default class PictureWithSearchbar extends Component {
                 <Container style={{ backgroundColor: '#fff' }}  >
                     <Row>
                         <Col sm="12" sm={{ size: 6, offset: 5 }} >
-                            <h5> What would you like see?</h5>
+                            <h5> What would you like to see?</h5>
                         </Col>
 
                     </Row>
 
 
-                    <Container className="themed-container mt-5" fluid="md" >
+                    <Container className="themed-container mt-3" fluid="md" >
                         <Row>
                             <Col sm="2" xs="4"></Col>
 

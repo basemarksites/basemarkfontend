@@ -33,6 +33,7 @@ export default class NavigationBar extends Component {
     }
 
     render() {
+<<<<<<< HEAD
         if (localStorage.getItem('token')) {
             return (
                 <div>
@@ -83,5 +84,29 @@ export default class NavigationBar extends Component {
                 </div>
             )
         }
+=======
+        return (
+            <div>
+                <Navbar color="light" expand='lg' id="navbar" style={{ height: '60px' }} >
+                    <NavbarBrand href='/'>
+                        <h5 style={{ color: '#CA4040', fontWeight: 'inherit', fontSize:'25px'}} className="ml-2">BASEMARK</h5>
+                    </NavbarBrand>
+                    <NavbarToggler onClick={this.toggle} style={{ color: '#000' }} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="mr-auto" navbar></Nav>
+                        <Nav className="mr-5" navbar><Link to='/mensProducts' style={{ textDecoration: 'none', color: '#000', fontWeight: 'bold' }}>MEN</Link></Nav>
+                        <Nav className="mr-5" navbar><Link to='/womensProducts' style={{ textDecoration: 'none', color: '#000', fontWeight: 'bold' }}>WOMEN</Link></Nav>
+
+                        <Nav className="mr-5" navbar><Link to='/kidsProducts' style={{ textDecoration: 'none', color: '#000', fontWeight: 'bold' }}>KIDS</Link></Nav>
+                        <Nav className="mr-auto" navbar><Link to='/allProducts' style={{ textDecoration: 'none', color: '#000', fontWeight: 'bold' }}>PRODUCTS</Link></Nav>
+                    </Collapse>
+
+
+                </Navbar >
+
+
+            </div>
+        )
+>>>>>>> 3d0e3c3b579ffb3e264283a1928cb1cb2353c462
     }
 }
