@@ -60,3 +60,14 @@
   padding: 20px;
   box-shadow: 2px 0px 31px #efefef;
 }
+
+.FAQ{
+  background-color:beige;
+  margin: 10px;
+}
+.FAQ p{
+  padding:10px;
+}
+.FAQ h1{
+  padding:10px;
+}

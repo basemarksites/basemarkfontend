@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import basemark from './assets/basemarklogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {Link} from 'react-router-dom'
 
 export default class Footer extends Component {
     render() {
@@ -15,13 +16,18 @@ export default class Footer extends Component {
                             <div className="col-12 col-sm-6 col-md-4">
                                 <div className="single-footer-widget mb-80">
                   
-                                            {/* logo */}
+                                            
                                           
-                <img src={basemark} className="footer-logo" alt="basemark_icon" style={{ margin: '0px 0px 0px 100px' }} height='40px'  />
+                <div className="footer-menu"  />
 
-                                           <p className="mb-30" >We would love to serve you and let you enjoy your experience at basemark.</p>
+                                           <h4 className="mb-30" >Footer Menu</h4>
+                                           <a href="/FAQ" >FAQ</a><br></br>
+
+                                           <a href="/privacy" >Privacy Policy</a>
+
 
                                            <div className="copywrite-text">
+                                               <div><link></link></div>
                                                <p>
                                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                                                 All rights reserved |  <i class="fa fa-heart-o" aria-hidden="true"></i> by Agile Team

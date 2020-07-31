@@ -31,9 +31,11 @@ import Clothes from './components/view-pages/Clothes';
 import Shoes from './components/view-pages/Shoes';
 import ViewProductDetails from './components/view-pages/ViewProductDetails';
 
-import ProductDetails from './components/view-pages/ProductDetail'
-import SearchedProducts from './components/view-pages/SearchProducts'
+import ProductDetails from './components/view-pages/ProductDetail';
+import SearchedProducts from './components/view-pages/SearchProducts';
 
+import FAQ from './components/FAQ';
+import privacy from './components/privacy';
 function App() {
   return (
     <BrowserRouter>
@@ -65,6 +67,8 @@ function App() {
         <Route exact path='/navigation' component={Navigation} />
         <Route exact path='/navigationbar' component={NavigationBar} />
         <Route exact path='/footer' component={Footerpage} />
+        <Route exact path='/FAQ' component={FAQ} />
+        <Route exact path='/privacy' component={privacy} />
 
         <Route exact path='/home' component={Homepage} />
 
