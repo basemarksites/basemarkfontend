@@ -38,7 +38,7 @@ import ViewProductDetails from './components/view-pages/ViewProductDetails';
 import ProductDetails from './components/view-pages/ProductDetail'
 import SearchedProducts from './components/view-pages/SearchProducts'
 
-<<<<<<< HEAD
+
 
 import Cart from './components/orders/Cart'
 
@@ -47,10 +47,10 @@ import Update from './components/ProfileUpdate';
 import Dashboard from './components/admin/Dashboard';
 import NewItems from './components/admin/NewItems';
 import PrivateRoute from './utils/PrivateRoute';
-=======
+
 import Home from './components/Home';
 
->>>>>>> 3d0e3c3b579ffb3e264283a1928cb1cb2353c462
+
 
 function App() {
   return (

@@ -102,6 +102,8 @@ export default class cart extends Component {
     //         }).catch((err) => console.log(err.response));
     // }
     prepareOrder = (productId) => {
+         let orderproduct = [];
+         orderproduct.push(this.state.product.push(''))
 
         Axios.get(`http://localhost:3001/products/${productId}`
             , this.state.config)
@@ -112,6 +114,8 @@ export default class cart extends Component {
                 console.log(response.data);
                 console.log(response);
             }).catch((err) => console.log(err.response));
+
+            Axios.post(`http://localhost:3001/orders`, this.state.config)
     }
 
     render() {
@@ -186,14 +190,14 @@ export default class cart extends Component {
                             <FormGroup>
                                 <label>Quantity</label>
                                 <Input name='qty' type='number'
-                                    value={this.state.qty} placeholder="Select quantity..."></Input>
+                                    value={this.state.qty} placeholder="Select quantity..." onChange={this.handleChange}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <label>Total Price</label>
                                 <Input name='totalPrice' type='number'
                                     //value={this.state.totalPrice}
                                     value={this.state.totalPrice}
-                                    placeholder="Your total price is..."></Input>
+                                    placeholder="Your total price is..." onChange={this.handleChange}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <label>Delivery Location</label>

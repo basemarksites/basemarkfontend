@@ -60,7 +60,7 @@ export default class AddProducts extends Component {
     addproduct = (e) => {
         e.preventDefault();
         console.log(this.state);
-
+        /* Inserting value in array size */
         let checkArray = [];
         for (var key in this.state) {
             if (this.state[key] === true) {

@@ -7,7 +7,7 @@ import PictureWithSearchbar from './PictureWithSearchbar'
 
 
 export default class Welcome extends Component {
-<<<<<<< HEAD
+
     constructor(props) {
         super(props)
 
@@ -21,9 +21,9 @@ export default class Welcome extends Component {
 
 
 
-=======
+
   
->>>>>>> 3d0e3c3b579ffb3e264283a1928cb1cb2353c462
+
     render() {
         if (localStorage.getItem('token')) {
             return <Redirect to='/home' />

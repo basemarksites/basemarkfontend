@@ -33,7 +33,7 @@ export default class NavigationBar extends Component {
     }
 
     render() {
-<<<<<<< HEAD
+
         if (localStorage.getItem('token')) {
             return (
                 <div>
@@ -84,7 +84,7 @@ export default class NavigationBar extends Component {
                 </div>
             )
         }
-=======
+
         return (
             <div>
                 <Navbar color="light" expand='lg' id="navbar" style={{ height: '60px' }} >
@@ -107,6 +107,6 @@ export default class NavigationBar extends Component {
 
             </div>
         )
->>>>>>> 3d0e3c3b579ffb3e264283a1928cb1cb2353c462
+
     }
 }

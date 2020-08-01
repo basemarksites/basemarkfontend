@@ -35,8 +35,8 @@ export default class ProductDetail extends Component {
     render() {
         return (
             <div>
-                <Label>{this.state.product.product_title}</Label>
-
+              
+             <h1>hello</h1>
             </div>
         )
     }

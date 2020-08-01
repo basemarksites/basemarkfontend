@@ -20,6 +20,7 @@ export default class ViewProductDetails extends Component {
 
         this.state = {
             productDetails: [],
+            product_size:[],
             modal: false,
             user: {},
             config: {
@@ -46,7 +47,8 @@ export default class ViewProductDetails extends Component {
             .then((response) => {
                 console.log(response.data)
                 this.setState({
-                    productDetails: response.data
+                    productDetails: response.data,
+                    product_size: response.data.product_size
                 })
             }).catch((err) => console.log(err.response));
 
@@ -79,8 +81,10 @@ export default class ViewProductDetails extends Component {
     render() {
 
         const { value, setValue } = this.state;
+        
 
         return (
+
 
             <div>
                 <Navigation></Navigation>
@@ -97,8 +101,15 @@ export default class ViewProductDetails extends Component {
                             <Label>Price : Rs. </Label>
                             <Label>{this.state.productDetails.price}</Label> <br></br>
                             <Label>Size :</Label>
-                            <Button size="sm" color="primary">Size</Button>
-                            <br></br>
+                            
+                         
+                                <Label><Button size="sm" color="primary" style={{ margin: '5px' }} >{this.state.product_size[0]}</Button></Label>
+                                <Label><Button size="sm" color="warning" style={{ margin: '5px' }} >{this.state.product_size[1]}</Button></Label>
+                                <Label><Button size="sm" color="danger" style={{ margin: '5px' }} >{this.state.product_size[2]}</Button></Label>
+                                <br></br>
+                               
+ 
+                          
 
                             <Button color="danger" style={{ margin: '5px' }} onClick={() => this.addToCart(this.state.productDetails._id)}> Add to Cart</Button>
                             <Button color="secondary" className="ml-3" onClick={this.toggle}>Order</Button>{' '}
