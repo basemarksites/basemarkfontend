@@ -110,7 +110,7 @@ export default class ViewProductDetails extends Component {
                                
  
                           
-
+                              <Label>No of stock :   </Label> {this.state.productDetails.stock} <br></br>
                             <Button color="danger" style={{ margin: '5px' }} onClick={() => this.addToCart(this.state.productDetails._id)}> Add to Cart</Button>
                             <Button color="secondary" className="ml-3" onClick={this.toggle}>Order</Button>{' '}
                             <Modal isOpen={this.state.modal}>
