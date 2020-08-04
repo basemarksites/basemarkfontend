@@ -26,7 +26,7 @@ export default class Dashboard extends Component {
                         </Link>
                         <span className="col-lg-1 col-md-4"></span>
                         <Link className="col-lg-3 col-md-4 shadow p-3 mb-5 rounded bg-danger text-dark mt-3 mb-3 pt-3 pb-3 controls"
-                            to="/hotSaleItems" style={{ width: '22rem' }}>
+                            to="/hotSales" style={{ width: '22rem' }}>
                             <h4 className="text-center"><img src={require('../assets/Sale.png')} alt="sportlogo" /></h4>
                             <h4 className="text-center">Hot Sale Items</h4>
                             <p className="text-center"><small>Hot Sale Items Info</small></p>

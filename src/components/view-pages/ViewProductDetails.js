@@ -11,7 +11,7 @@ import NavigationBar from '../NavigationBar'
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-
+import ListOfFeedbacks from './ViewFeedbacks'
 
 export default class ViewProductDetails extends Component {
 
@@ -19,7 +19,10 @@ export default class ViewProductDetails extends Component {
         super(props)
 
         this.state = {
+            comment: '',
+            ratings: '',
             productDetails: [],
+            product_feedbacks: [],
             modal: false,
             user: {},
             config: {
@@ -28,6 +31,12 @@ export default class ViewProductDetails extends Component {
         }
         this.toggle = this.toggle.bind(this);
 
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
     toggle() {
@@ -49,6 +58,17 @@ export default class ViewProductDetails extends Component {
                     productDetails: response.data
                 })
             }).catch((err) => console.log(err.response));
+
+        //Feedbacks
+        axios.get('http://localhost:3001/feedbacks/' + (this.props.match.params.id), this.state.config)
+            .then((response) => {
+                console.log(response.data)
+                this.setState({
+                    product_feedbacks: response.data
+                })
+            }).catch((err) => console.log(err.response));
+
+
 
         axios.get('http://localhost:3001/users/myProfile', this.state.config)
             .then((response) => {
@@ -75,6 +95,24 @@ export default class ViewProductDetails extends Component {
             }).catch((err) => console.log(err.response));
     }
 
+    postFeedback = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:3001/feedbacks', {
+            comment: this.state.comment,
+            ratings: this.state.ratings,
+            customer: this.state.user._id,
+            product: this.state.productDetails._id
+        }, this.state.config)
+            .then((response) => {
+                console.log(response.data);
+                alert("Thank you for your feedback.")
+                window.location.reload(false);
+                this.setState({
+                    comment: '',
+                    ratings: '',
+                });
+            }).catch((err) => console.log(err))
+    }
 
     render() {
 
@@ -195,9 +233,29 @@ export default class ViewProductDetails extends Component {
                     </Container>
                     <hr></hr>
 
-                    <Container></Container>
+                    <Container>
+                        <FormGroup>
+                            <Label for="comment">Your feedback</Label>
+                            <Input type="comment" name="comment" id="comment" placeholder="Give us your feedbacks....."
+                                value={this.state.comment} onChange={this.handleChange} />
+                        </FormGroup>
+                        <Button color="success" onClick={this.postFeedback}>Submit</Button>
+                    </Container>
+                    <hr></hr>
+                    <Container style={{ backgroundColor: '#DCDCDC', padding: '10px' }}>
+                        <h3>Feedbacks</h3>
 
+                        {
+                            this.state.product_feedbacks.map((feedback) =>
+                                <p key={feedback._id} for="comment">{feedback.comment}  Posted By: {feedback.customer.fullName}</p>
+
+                            )
+                        }
+                    </Container>
                 </Container>
+                {/* <ListOfFeedbacks></ListOfFeedbacks> */}
+
+
 
             </div >
 

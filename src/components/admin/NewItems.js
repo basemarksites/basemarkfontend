@@ -52,7 +52,7 @@ export default class NewItems extends Component {
                 this.setState({
                     newItems: ''
                 });
-            }).catch((err) => console.log(err))
+            }).catch((err) => console.log(err), alert("Please select items."))
     }
 
     removeItems = (itemId) => {

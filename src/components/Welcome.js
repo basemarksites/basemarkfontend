@@ -3,7 +3,10 @@ import Navigation from './Navigation'
 import NavigationBar from './NavigationBar'
 import { Button } from 'reactstrap'
 import PictureWithSearchbar from './PictureWithSearchbar'
-
+import { Link } from '@material-ui/core'
+import HotSales from './view-pages/HotSales'
+import NewItems from './view-pages/NewItems'
+import Footer from './Footer'
 
 export default class Welcome extends Component {
     constructor(props) {
@@ -25,9 +28,9 @@ export default class Welcome extends Component {
                 <Navigation></Navigation>
                 <NavigationBar></NavigationBar>
                 <PictureWithSearchbar></PictureWithSearchbar>
-                <Button color="primary" onClick={this.handleLogout}>
-                    Logout
-            </Button>
+                <HotSales></HotSales>
+                <NewItems></NewItems>
+                <Footer></Footer>
             </div>
         )
     }
