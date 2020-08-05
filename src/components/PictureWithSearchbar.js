@@ -2,11 +2,6 @@ import React, { Component } from 'react'
 import { Button, Row, Col, Jumbotron, Input, InputGroupAddon, InputGroup, Label, Card, CardTitle, CardText, Container, CardImg, CardImgOverlay } from 'reactstrap'
 import '../Homepage.css'
 
-import menscloth from '../components/assets/fashion.png'
-import womencloth from '../components/assets/dress.png'
-import babycloth from '../components/assets/baby.png'
-import accessories from '../components/assets/accessories.jpg'
-import shoes from '../components/assets/shoes.jpg'
 import coverphoto from '../components/assets/cover.jpg'
 import { Link } from 'react-router-dom';
 

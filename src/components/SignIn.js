@@ -15,7 +15,7 @@ import Footer from './Footer';
 
 
 
-export default class SigninAndSignup extends Component {
+export default class SignIn extends Component {
     constructor(props) {
         super(props)
 
@@ -27,6 +27,7 @@ export default class SigninAndSignup extends Component {
             password: '',
             cpassword: '',
             username: '',
+            role: '',
             isLoggedIn: false
 
 
@@ -43,14 +44,12 @@ export default class SigninAndSignup extends Component {
 
     handleSignInSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/users/login', this.state)
+        axios.get('http://localhost:3001/users/login', this.state)
             .then((response) => {
                 console.log(response.data)
                 localStorage.setItem('token', response.data.token)
                 this.setState({
-                    username: '',
-                    password: '',
-                    isLoggedIn: true
+                    role: response.body.role
                 })
             }).catch((err) => console.log(err.response))
     }
