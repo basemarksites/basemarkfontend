@@ -119,9 +119,6 @@ export default class AddProducts extends Component {
     render() {
         return (
             <div>
-                
-                <Welcome></Welcome>
-
                 <Container>
                     <h2 style={{ margin: '20px 0px 0px 0px' }}>Add Product </h2>
 
@@ -129,9 +126,6 @@ export default class AddProducts extends Component {
                         <Button color="primary" style={{ margin: '-30px 60px 0px 60px', float: 'right' }}> View products</Button>
                     </Link>
                     <hr></hr>
-
-
-
                     <Row>
                         <Col sm="12" md={{ size: 6, offset: 3 }}>
                             <Form>

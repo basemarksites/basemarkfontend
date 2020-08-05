@@ -4,7 +4,10 @@ import NavigationBar from './NavigationBar'
 
 import {Redirect} from 'react-router-dom'
 import PictureWithSearchbar from './PictureWithSearchbar'
-
+import { Link } from '@material-ui/core'
+import HotSales from './view-pages/HotSales'
+import NewItems from './view-pages/NewItems'
+import Footer from './Footer'
 
 export default class Welcome extends Component {
 
@@ -33,7 +36,13 @@ export default class Welcome extends Component {
                 <Navigation></Navigation>
                 <NavigationBar></NavigationBar>
                 <PictureWithSearchbar></PictureWithSearchbar>
+<<<<<<< HEAD
                
+=======
+                <HotSales></HotSales>
+                <NewItems></NewItems>
+                <Footer></Footer>
+>>>>>>> uttam-ui
             </div>
         )
     }

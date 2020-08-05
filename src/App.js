@@ -46,10 +46,19 @@ import Update from './components/ProfileUpdate';
 
 import Dashboard from './components/admin/Dashboard';
 import NewItems from './components/admin/NewItems';
+
 import PrivateRoute from './utils/PrivateRoute';
 
 import Home from './components/Home';
 
+
+
+import HotSales from './components/admin/HotSales';
+
+import NewProducts from './components/view-pages/NewItems';
+import HotSalesProducts from './components/view-pages/HotSales';
+
+import AdminOrders from './components/admin/AdminOrders';
 
 
 function App() {
@@ -83,6 +92,13 @@ function App() {
 
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <Route exact path='/newItems' component={NewItems} />
+        <Route exact path='/hotSales' component={HotSales} />
+
+        <Route exact path='/hotSalesProducts' component={HotSalesProducts} />
+        <Route exact path='/NewProducts' component={NewProducts} />
+
+        <Route exact path='/adminOrders' component={AdminOrders} />
+
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />
         <Route exact path='/navigation' component={Navigation} />

@@ -52,11 +52,14 @@ export default class PictureWithSearchbar extends Component {
                         <Col sm="12" sm={{ size: 6, offset: 5 }} >
                             <h5> What would you like to see?</h5>
                         </Col>
-
                     </Row>
+<<<<<<< HEAD
 
 
                     <Container className="themed-container mt-3" fluid="md" >
+=======
+                    <Container className="themed-container mt-5" fluid="md" >
+>>>>>>> uttam-ui
                         <Row>
                             <Col sm="2" xs="4"></Col>
 

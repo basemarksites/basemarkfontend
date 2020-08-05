@@ -235,5 +235,3 @@ export default class cart extends Component {
         )
     }
 }
-
-
