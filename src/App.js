@@ -35,8 +35,9 @@ import Shoes from './components/view-pages/Shoes';
 
 import ViewProductDetails from './components/view-pages/ViewProductDetails';
 
-import ProductDetails from './components/view-pages/ProductDetail'
-import SearchedProducts from './components/view-pages/SearchProducts'
+import ProductDetails from './components/view-pages/ProductDetail';
+import SearchedProducts from './components/view-pages/SearchProducts';
+
 
 
 
@@ -60,6 +61,10 @@ import HotSalesProducts from './components/view-pages/HotSales';
 
 import AdminOrders from './components/admin/AdminOrders';
 
+
+
+import FAQ from './components/FAQ';
+import privacy from './components/privacy';
 
 function App() {
   return (
@@ -105,6 +110,8 @@ function App() {
         <Route exact path='/navigationbar' component={NavigationBar} />
         <Route exact path='/navafterlogin' component={NavAfterLogin} />
         <Route exact path='/footer' component={Footerpage} />
+        <Route exact path='/FAQ' component={FAQ} />
+        <Route exact path='/privacy' component={privacy} />
 
 
 
