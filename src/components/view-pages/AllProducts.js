@@ -144,8 +144,6 @@ export default class AllProducts extends Component {
                         <Link to={`/kidsProducts`} >
                             <Button color="success" style={{ margin: '5px' }}> Kids products</Button>
                         </Link>
-
-
                         <hr></hr>
                         <Label style={{ margin: '0px 10px' }}> Categories: </Label>
                         <Link to={`/clothes`} >

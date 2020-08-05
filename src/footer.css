@@ -1,5 +1,10 @@
 
 /* Spacing Top */
+.footer
+{
+background-color: #001a00;
+padding-bottom: 60px;
+}
 .section-padding-80-0 {
   padding-top: 80px;
   padding-bottom: 0; }
@@ -18,7 +23,7 @@
       font-size: 14px; } }
   .single-footer-widget .widget-title {
     font-size: 22px;
-    color: #252525;
+    color: #ffffff;
     margin-bottom: 30px;
     display: block;
     text-transform: capitalize; }
@@ -66,10 +71,21 @@
   z-index: 1; }
   .copywrite-text p {
     font-size: 16px;
-    color: #6e6e6e;
+    color: #ffffff;
     margin-bottom: 0; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .copywrite-text p {
         font-size: 14px; } }
+        .mb-30{
+          color: #ffffff;
+        }
+        .open-time
+        {
+          color: #ffffff;
+        }
+        .contact-address
+        {
+          color: #ffffff;
+        }
   
 
