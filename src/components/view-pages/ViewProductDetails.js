@@ -23,10 +23,15 @@ export default class ViewProductDetails extends Component {
             ratings: '',
             productDetails: [],
 <<<<<<< HEAD
+<<<<<<< HEAD
             product_size:[],
 =======
             product_feedbacks: [],
 >>>>>>> uttam-ui
+=======
+            product_size:[],
+            product_feedbacks: [],
+>>>>>>> ashish-branch
             modal: false,
             user: {},
             config: {

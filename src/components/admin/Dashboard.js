@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Row, Button } from 'reactstrap'
 import { Link , Redirect} from 'react-router-dom'
+import { useIsFocusVisible } from '@material-ui/core';
 
 export default class Dashboard extends Component {
 
@@ -9,14 +10,17 @@ export default class Dashboard extends Component {
         localStorage.removeItem('token');
         localStorage.clear();
         if(localStorage.getItem('token') == null){
-            this.props.history.push('/login');
+            
+            window.location.reload(false);
 
         }
         
       }
     render() {
-           
+         if(localStorage.getItem('token')){
+
         
+       
         return (
             <div className="dashboard_container">
        
@@ -62,5 +66,6 @@ export default class Dashboard extends Component {
             </div>
         )
     
+}
 }
 }

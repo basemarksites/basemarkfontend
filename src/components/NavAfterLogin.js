@@ -37,6 +37,7 @@ export default class Navigation extends Component {
     handleLogout = (e) => {
         e.preventDefault();
         localStorage.removeItem('token');
+        window.location.reload(false);
         
     }
 

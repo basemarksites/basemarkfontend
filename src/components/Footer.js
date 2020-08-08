@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import basemark from './assets/basemarklogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -66,11 +67,10 @@ export default class Footer extends Component {
 
 
                                     <div className="social-info">
-                                        <a href="#" className="facebook">
-                                            {/* <i className="fa fa-facebook"></i> */}
+                                    <a href="#" className="google-plus">
                                             <FontAwesomeIcon icon="user" />
                                         </a>
-                                        <a href="#" className="twitter">
+                                        <a href="#" className="instagram">
                                             <FontAwesomeIcon icon="user" />
                                         </a>
                                         <a href="#" className="google-plus">

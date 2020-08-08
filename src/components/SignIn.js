@@ -27,7 +27,8 @@ export default class SigninAndSignup extends Component {
             password: '',
             cpassword: '',
             username: '',
-            isLoggedIn: false
+            isLoggedIn: false,
+            role: '',
 
 
 
@@ -48,9 +49,7 @@ export default class SigninAndSignup extends Component {
                 console.log(response.data)
                 localStorage.setItem('token', response.data.token)
                 this.setState({
-                    username: '',
-                    password: '',
-                    isLoggedIn: true
+                    role: response.data.role
                 })
             }).catch((err) => console.log(err.response))
     }
@@ -73,14 +72,14 @@ export default class SigninAndSignup extends Component {
         //         container.classList.remove("right-panel-active");
         //     })
         // }
-
-        if (localStorage.getItem('token')) {
+        if (this.state.role === 'admin') {
+            return <Redirect to='/dashboard' />
+        } else if (this.state.role === 'customer') {
             return <Redirect to='/home' />
+
         }
 
-        if (this.state.isLoggedIn) {
-            return <Redirect to='/home' />
-        }
+      
 
         return (
             <div>

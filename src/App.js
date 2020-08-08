@@ -63,8 +63,13 @@ import AdminOrders from './components/admin/AdminOrders';
 
 
 
+
 import FAQ from './components/FAQ';
 import privacy from './components/privacy';
+
+import ViewOrder from './components/admin/ViewOrder';
+
+
 
 function App() {
   return (
@@ -102,7 +107,7 @@ function App() {
         <Route exact path='/hotSalesProducts' component={HotSalesProducts} />
         <Route exact path='/NewProducts' component={NewProducts} />
 
-        <Route exact path='/adminOrders' component={AdminOrders} />
+        <PrivateRoute exact path='/adminOrders' component={ViewOrder} />
 
 
         <Route exact path='/recoverpassword' component={RecoverPassword} />

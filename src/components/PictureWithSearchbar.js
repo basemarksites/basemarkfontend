@@ -54,12 +54,22 @@ export default class PictureWithSearchbar extends Component {
                         </Col>
                     </Row>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
                     <Container className="themed-container mt-3" fluid="md" >
 =======
                     <Container className="themed-container mt-5" fluid="md" >
 >>>>>>> uttam-ui
+=======
+
+
+
+                    <Container className="themed-container mt-3" fluid="md" >
+
+                    <Container className="themed-container mt-5" fluid="md" >
+
+>>>>>>> ashish-branch
                         <Row>
                             <Col sm="2" xs="4"></Col>
 
@@ -96,6 +106,7 @@ export default class PictureWithSearchbar extends Component {
                         </Row>
                     </Container>
                     <hr></hr>
+                </Container>
                 </Container>
 
 
