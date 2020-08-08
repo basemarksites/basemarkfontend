@@ -75,13 +75,11 @@ export default class SigninAndSignup extends Component {
         if (this.state.role === 'admin') {
             return <Redirect to='/dashboard' />
         } else if (this.state.role === 'customer') {
-            return <Redirect to='/allproducts' />
+            return <Redirect to='/home' />
 
         }
 
-        if (localStorage.getItem('token')) {
-            return (<Redirect to='/' />)
-        }
+      
 
         return (
             <div>

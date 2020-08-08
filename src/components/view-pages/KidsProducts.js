@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navigation from '../Navigation'
 import NavigationBar from '../NavigationBar'
+import NavigationAfterLogin from "../NavAfterLogin"
 
 import { Container, CardColumns, Card, CardImg, CardBody, CardTitle, Button } from 'reactstrap'
 import { FaTrashAlt } from 'react-icons/fa';
@@ -64,7 +65,7 @@ export default class KidsProducts extends Component {
         if (localStorage.getItem('token')) {
             return (
                 <div>
-                    <Navigation></Navigation>
+                    <NavigationAfterLogin></NavigationAfterLogin>
                     <NavigationBar></NavigationBar>
                     <Container>
                         <h2 style={{ margin: '20px 0px 0px 0px' }}>Kids Products</h2>
