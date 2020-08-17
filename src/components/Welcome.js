@@ -36,15 +36,11 @@ export default class Welcome extends Component {
                 <Navigation></Navigation>
                 <NavigationBar></NavigationBar>
                 <PictureWithSearchbar></PictureWithSearchbar>
-<<<<<<< HEAD
-<<<<<<< HEAD
-               
-=======
+
                 <HotSales></HotSales>
                 <NewItems></NewItems>
                 <Footer></Footer>
->>>>>>> uttam-ui
-=======
+
 
                
 
@@ -52,7 +48,7 @@ export default class Welcome extends Component {
                 <NewItems></NewItems>
                 <Footer></Footer>
 
->>>>>>> ashish-branch
+
             </div>
         )
     }
