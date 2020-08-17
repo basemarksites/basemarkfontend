@@ -22,16 +22,14 @@ export default class ViewProductDetails extends Component {
             comment: '',
             ratings: '',
             productDetails: [],
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             product_size:[],
-=======
+
             product_feedbacks: [],
->>>>>>> uttam-ui
-=======
+
             product_size:[],
             product_feedbacks: [],
->>>>>>> ashish-branch
+
             modal: false,
             user: {},
             config: {
