@@ -80,7 +80,7 @@ function App() {
         <Route exact path='/signup' component={SignUp} />
 
         <Route exact path='/productcategory' component={ProductCategory} />
-        <PrivateRoute path='/addproduct' component={AddProducts} />
+        <Route path='/addproduct' component={AddProducts} />
         <Route exact path='/viewproducts' component={ViewProducts} />
         <Route exact path='/updateproduct/:id' component={UpdateProduct} />
 
@@ -97,10 +97,10 @@ function App() {
         <Route exact path='/productDetails/:id' component={ViewProductDetails}></Route>
         <Route exact path='/searchProducts/:id' component={SearchedProducts}></Route>
 
-        <PrivateRoute exact path='/Cart' component={Cart}></PrivateRoute>
+        <Route exact path='/Cart' component={Cart}></Route>
         <PrivateRoute exact path='/Cart/:id' component={Cart}></PrivateRoute>
 
-        <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/newItems' component={NewItems} />
         <Route exact path='/hotSales' component={HotSales} />
 
@@ -125,7 +125,7 @@ function App() {
         <Route exact path='/search' component={PictureWithSearchbar} />
 
 
-        <PrivateRoute path='/home' component={Home} />
+        <Route path='/home' component={Home} />
 
 
 

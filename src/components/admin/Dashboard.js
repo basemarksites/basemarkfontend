@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
         
       }
     render() {
-         if(localStorage.getItem('token')){
+       
 
         
        
@@ -68,4 +68,4 @@ export default class Dashboard extends Component {
     
 }
 }
-}
+

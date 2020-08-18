@@ -47,7 +47,7 @@ export default class SigninAndSignup extends Component {
         axios.post('http://localhost:3001/users/login', this.state)
             .then((response) => {
                 console.log(response.data)
-                localStorage.setItem('token', response.data.token)
+                //localStorage.setItem('token', response.data.token)
                 this.setState({
                     role: response.data.role
                 })
@@ -147,11 +147,11 @@ export default class SigninAndSignup extends Component {
                                 <span style={{ fontSize: '15px' }}>or use your account</span>
 
                                 <FormGroup style={{ marginTop: '13px' }}>
-                                    <Input type="text" name="username" className="form-input" id="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
+                                    <Input type="text" name="username" className="form-input" id="username" placeholder="LUsername" value={this.state.username} onChange={this.handleChange} />
                                 </FormGroup>
 
                                 <FormGroup>
-                                    <Input type="password" name="password" className="form-input" id="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
+                                    <Input type="password" name="password" className="form-input" id="password" placeholder="LPassword" value={this.state.password} onChange={this.handleChange} />
                                 </FormGroup>
 
                                 <Link to='/recoverpassword' className="forgot-password">Forgot your Password? </Link>
